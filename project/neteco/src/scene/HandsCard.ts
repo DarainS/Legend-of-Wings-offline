@@ -6,7 +6,9 @@ class HandsCard extends egret.Stage{
     }
 
     private onAddToStage(event:egret.Event) {
-
+        var card=new Card()
+        card.name="寒冰攻击"
+        this.addChild(card)
     }
 
 

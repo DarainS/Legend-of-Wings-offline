@@ -23,6 +23,7 @@ class MainMenuUI  extends egret.Stage {
 		this.beginGameField.textAlign = "center";
 		this.beginGameField.x=400;
 		this.beginGameField.y=400;
+		this.beginGameField.textColor=0x000000
 		
 		this.addChild(this.beginGameField)
 
