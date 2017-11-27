@@ -8,9 +8,9 @@ class Card extends egret.DisplayObjectContainer {
 
     private shape=new egret.Shape()
 
-    public name:string
+    public name:string='name'
     public bordColor:number=0xFFFFFF
-    public description:string
+    public simpleDesc:string='simple description'
 
     /**
      * 回合开始，回合结束
@@ -28,9 +28,9 @@ class Card extends egret.DisplayObjectContainer {
     public beforeDamage:Array=[]
     public afterDamage:Array=[]
 
+    public damage:Damage[]=[]
 
-
-    public drawBord(){
+    private drawBord(){
         this.shape.graphics.beginFill(this.bordColor,1)
         var g=this.shape.graphics
         var width=200
@@ -62,10 +62,7 @@ class Card extends egret.DisplayObjectContainer {
 
     private drawDesc(){
         var text=new egret.TextField()
-        text.text=this.description
-        if (this.description==null){
-            return
-        }
+        text.text=this.simpleDesc
         this.addChildAt(text,1)
     }
 
@@ -85,7 +82,6 @@ class Card extends egret.DisplayObjectContainer {
 
     private mouseDown(evt:egret.TouchEvent)
     {
-        console.log("Mouse Down.");
         this._touchStatus = true;
         this.x = evt.stageX - this.x;
         this.y = evt.stageY - this.y;
@@ -104,7 +100,6 @@ class Card extends egret.DisplayObjectContainer {
 
     private mouseUp(evt:egret.TouchEvent)
     {
-        console.log("Mouse Up.");
         this._touchStatus = false;
         this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.mouseMove, this);
     }

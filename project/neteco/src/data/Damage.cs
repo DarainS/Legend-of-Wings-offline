@@ -1,0 +1,5 @@
+class Damage{
+    public Damage(){
+
+    }
+}

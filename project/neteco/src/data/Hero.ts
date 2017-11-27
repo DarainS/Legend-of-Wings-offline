@@ -4,6 +4,18 @@ class Deck {
 
 }
 
+class State{
+
+    public name:string
+
+    public source
+
+    public type
+
+    public num
+
+}
+
 class Hero extends egret.DisplayObjectContainer {
 
     public battle;
