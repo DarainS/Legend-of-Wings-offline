@@ -1,7 +1,7 @@
 
 class Main extends egret.DisplayObjectContainer {
 
-    private mainMenueUI:MainMenuUI;
+    private mainMenuUI:MainMenuUI;
 
     constructor() {
         super();    
@@ -12,7 +12,7 @@ class Main extends egret.DisplayObjectContainer {
         this.width=this.stage.width
         this.height=this.stage.height
 
-        this.mainMenueUI=new MainMenuUI()
-        this.addChild(this.mainMenueUI)
+        this.mainMenuUI=new MainMenuUI()
+        this.addChild(this.mainMenuUI)
     }
 }

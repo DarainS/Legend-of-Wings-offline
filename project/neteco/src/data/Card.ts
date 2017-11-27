@@ -12,6 +12,23 @@ class Card extends egret.DisplayObjectContainer {
     public bordColor:number=0xFFFFFF
     public description:string
 
+    /**
+     * 回合开始，回合结束
+     *
+     * 使用卡牌前后
+     * 造成伤害前后
+     * 受到伤害前后
+     *
+     * 摸牌阶段 前后
+     * 出牌阶段 前后
+     *
+     * 各种标记
+     */
+
+    public beforeDamage:Array=[]
+    public afterDamage:Array=[]
+
+
 
     public drawBord(){
         this.shape.graphics.beginFill(this.bordColor,1)
