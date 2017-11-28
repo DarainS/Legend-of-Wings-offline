@@ -1,8 +1,52 @@
-﻿public class Hero : Character {
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+namespace Model {
+    public class Hero : Character {
     
-    
-    public Hero() {
-        
+        private int currentHealth;
+        private int maxHealth;
+
+        public Hero() {
+            MaxHealth = 10;
+            CurrentHealth = 6;
+        }
+
+        public int CurrentHealth {
+            get { return currentHealth; }
+            set {
+                currentHealth = value;
+                if(slider != null && maxHealth != 0) {
+                    slider.value = currentHealth / maxHealth;
+                }
+            }
+        }
+
+
+        public int MaxHealth {
+            get { return maxHealth; }
+            set {
+                maxHealth = value;
+                if(slider) {
+                    slider.maxValue = maxHealth;
+                }
+            }
+        }
+
+        protected Slider slider;
+
+        // Use this for initialization
+        void Start() {
+            Canvas canvas = transform.GetComponentInChildren<Canvas>();
+            slider = canvas.gameObject.GetComponentInChildren<Slider>();
+
+            slider.value = CurrentHealth;
+            slider.maxValue = MaxHealth;
+        }
+
+        // Update is called once per frame
+        void Update() {
+            
+        }
     }
-    
 }
