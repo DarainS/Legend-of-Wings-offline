@@ -12,3 +12,4 @@ project/unity/\.vs/
 project/unity/Temp/
 
 project/unity/obj/
+/project/unity/.idea/.idea.unity/.idea/workspace.xml
