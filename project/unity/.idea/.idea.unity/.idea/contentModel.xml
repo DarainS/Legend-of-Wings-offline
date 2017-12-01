@@ -14,11 +14,21 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Model" t="Include">
+            <e p="card" t="Include">
+              <e p="ActionType.cs" t="Include" />
+              <e p="CardAction.cs" t="Include" />
+              <e p="CardType.cs" t="Include" />
+              <e p="IceAttack.cs" t="Include" />
+              <e p="StoneSkin.cs" t="Include" />
+            </e>
             <e p="Card.cs" t="Include" />
             <e p="Character.cs" t="Include" />
+            <e p="damage" t="Include">
+              <e p="Damage.cs" t="Include" />
+              <e p="DamageType.cs" t="Include" />
+            </e>
             <e p="Hero.cs" t="Include" />
           </e>
-          <e p="NewBehaviourScript.cs" t="Include" />
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />

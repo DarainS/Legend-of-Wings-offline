@@ -4,36 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.damage
-{
-    class Damage
-    {
+namespace Model.damage {
+    public class Damage {
         int num;
+
         public DamageType type;
 
-        public int Num
-        {
-            get
-            {
-                return num;
-            }
+        public int Num {
+            get { return num; }
 
-            set
-            {
-                num = value;
-            }
+            set { num = value; }
         }
 
-        public Damage(int num)
-        {
+        public Damage(int num) {
             this.num = num;
             this.type = DamageType.PHYSICAL;
         }
-        public Damage(int num,DamageType type)
-        {
+
+        public Damage(int num, DamageType type) {
             this.num = num;
             this.type = type;
         }
-
     }
 }

@@ -7,9 +7,6 @@ using Slider = UnityEngine.UI.Slider;
 
 namespace Model {
     public class Hero : Character {
-    
-        private int currentHealth;
-        private int maxHealth;
 
         public Hero() {
             MaxHealth = 10;
@@ -51,7 +48,6 @@ namespace Model {
 
         // Update is called once per frame
         void Update() {
-            
         }
     }
 }
