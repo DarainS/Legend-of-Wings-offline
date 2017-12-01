@@ -1,16 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Model;
 
-public class Card : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+namespace Model
+{
+    public abstract class Card : MonoBehaviour {
+
+        public Character character;
+
+        
+
+        public abstract void playEffect();
 	
-	// Update is called once per frame
-	void Update () {
+
+
+        // Use this for initialization
+        void Start () {
 		
-	}
+        }
+	
+        // Update is called once per frame
+        void Update () {
+		
+        }
+    }
+
+
 }

@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Experimental.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 namespace Model {
     public class Hero : Character {
@@ -32,6 +36,7 @@ namespace Model {
                 }
             }
         }
+
 
         protected Slider slider;
 
