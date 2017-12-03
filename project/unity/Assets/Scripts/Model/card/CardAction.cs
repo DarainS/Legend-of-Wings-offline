@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+
 using Model;
+using Model.card;
 using Model.damage;
 
-namespace Model.card {
-    public class CardAction<T,R> :IComparer<CardAction<T,R>>{
-        
+
+
+    public class CardAction<T, R> : IComparer<CardAction<T, R>> {
+
         public ActionType type;
+
         public int order;
+
         public Card source;
+
         public Character character;
+
         private Func<T, R> func;
 
-       
 
-        public CardAction(int order,Func<T, R> func) {
+        public CardAction(int order, Func<T, R> func) {
             this.order = order;
             this.func = func;
         }
@@ -26,7 +30,9 @@ namespace Model.card {
             return func(t);
         }
 
+
         public delegate void Make(string s);
+
 
         public void make1(string s) {
             Console.WriteLine("hello 1");
@@ -46,13 +52,15 @@ namespace Model.card {
         }
 
         public int Compare(CardAction<T, R> x, CardAction<T, R> y) {
-            if(x.order>y.order) {
+            if(x.order > y.order) {
                 return 1;
             }
-            if(x.order<y.order) {
+            if(x.order < y.order) {
                 return -1;
             }
+
             return 0;
         }
+
     }
-}
+

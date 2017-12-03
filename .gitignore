@@ -13,3 +13,10 @@ project/unity/Temp/
 
 project/unity/obj/
 /project/unity/.idea/.idea.unity/.idea/workspace.xml
+metadata
+.idea
+shadercompiler-UnityShaderCompiler0.log
+EditorInstance.json
+assetDatabase3
+ScriptAssemblies
+*.cache

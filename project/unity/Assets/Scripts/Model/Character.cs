@@ -4,18 +4,32 @@ using System.Collections;
 using System.Collections.Generic;
 using Model.damage;
 using UnityEngine;
-using Model.card;
 using Object = System.Object;
 
 namespace Model {
     public class Character : MonoBehaviour {
+        
         protected List<CardAction<Damage, Damage>> beforeDamage = new List<CardAction<Damage, Damage>>();
 
         protected List<CardAction<Damage, Damage>> afterDamage = new List<CardAction<Damage, Damage>>();
 
         protected int currentHealth;
+        
         protected int maxHealth;
 
+        protected List<Card> deck= new List<Card>(30);
+
+        public List<Card> Deck {
+            get { return deck; }
+            set { deck = value; }
+        }
+        
+        protected List<Card> hands= new List<Card>(10);
+
+        public List<Card> Hands {
+            get { return hands; }
+            set { hands = value; }
+        }
 
         public int CurrentHealth {
             get { return currentHealth; }

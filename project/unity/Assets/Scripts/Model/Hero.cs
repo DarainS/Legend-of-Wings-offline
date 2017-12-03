@@ -34,11 +34,16 @@ namespace Model {
             }
         }
 
-
         protected Slider slider;
 
-        // Use this for initialization
+
+        void initData() {
+            deck.Add(gameObject.AddComponent<IceAttack>());
+            deck.Add(gameObject.AddComponent<StoneSkin>());
+        }
+        
         void Start() {
+            initData();
             Canvas canvas = transform.GetComponentInChildren<Canvas>();
             slider = canvas.gameObject.GetComponentInChildren<Slider>();
 
@@ -46,8 +51,6 @@ namespace Model {
             slider.maxValue = MaxHealth;
         }
 
-        // Update is called once per frame
-        void Update() {
-        }
+        
     }
 }

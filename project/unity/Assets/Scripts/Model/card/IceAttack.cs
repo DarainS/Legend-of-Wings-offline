@@ -2,7 +2,6 @@
 using Model;
 using Model.damage;
 
-namespace Model {
     public class IceAttack : Card {
         private string name;
 
@@ -16,4 +15,3 @@ namespace Model {
             character.TakeDamage(damage);
         }
     }
-}
