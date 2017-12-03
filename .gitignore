@@ -20,3 +20,4 @@ EditorInstance.json
 assetDatabase3
 ScriptAssemblies
 *.cache
+Assembly-CSharp.csprojResolveAssemblyReference.cache

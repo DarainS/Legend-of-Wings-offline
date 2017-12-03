@@ -52,9 +52,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Model\Card.cs" />
-    <Compile Include="Assets\Scripts\Model\card\CardAction.cs" />
+    <Compile Include="Assets\Scripts\Manager\BattleManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\HandsArea.cs" />
     <Compile Include="Assets\Scripts\Model\card\ActionType.cs" />
+    <Compile Include="Assets\Scripts\Model\card\Card.cs" />
+    <Compile Include="Assets\Scripts\Model\card\CardAction.cs" />
     <Compile Include="Assets\Scripts\Model\card\CardType.cs" />
     <Compile Include="Assets\Scripts\Model\card\IceAttack.cs" />
     <Compile Include="Assets\Scripts\Model\card\StoneSkin.cs" />
