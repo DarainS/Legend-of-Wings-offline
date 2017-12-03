@@ -9,8 +9,8 @@ namespace Model {
     public class Hero : Character {
 
         public Hero() {
-            MaxHealth = 10;
-            CurrentHealth = 6;
+            MaxHealth = 30;
+            CurrentHealth = 26;
             initData();
 
         }
@@ -40,8 +40,8 @@ namespace Model {
 
 
         void initData() {
-            deck.Add(new IceAttack());
-            deck.Add(new StoneSkin());
+            deck.Add(new IceAttack(this));
+            deck.Add(new StoneSkin(this));
         }
         
         void Start() {

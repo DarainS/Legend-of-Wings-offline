@@ -11,29 +11,28 @@ namespace Manager {
 
         private Hero _hero;
         private HandsArea handsArea;
+        public UCard _ucard;
 
         public Hero Hero {
             get { return _hero; }
             set { _hero = value; }
         }
 
-        void initHandsArea() {
+        private void initHandsArea() {
             foreach(var card in _hero.Deck) {
+                Console.WriteLine("load card: " + card.Name);
                 handsArea.AddCard(card);
-                Console.WriteLine("load card: "+card.Name);
-                
             }
         }
 
         void Start() {
-            
             Hero = transform.GetComponentInChildren<Hero>();
             handsArea = transform.GetComponentInChildren<HandsArea>();
-
+            handsArea._battleManager = this;
+            _ucard = transform.GetComponentInChildren<UCard>();
+            handsArea.tempUCard = _ucard;
             initHandsArea();
         }
-        
-        
 
     }
 

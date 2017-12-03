@@ -4,7 +4,7 @@ using UnityEngine;
 using Model;
 
 
-    public class Card {
+    public abstract class Card {
         
         protected string name;
 
@@ -23,9 +23,10 @@ using Model;
         public Character character;
 
 
-        public void playEffect(Character target) {
-            
-        }
+
+        public abstract void playEffect(Character target);
+
+        public abstract bool isUseable();
 
 
     }

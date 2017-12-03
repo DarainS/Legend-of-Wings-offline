@@ -1,6 +1,7 @@
 ﻿using Model;
 
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 
 namespace Manager {
@@ -9,24 +10,30 @@ namespace Manager {
 
         private Canvas _canvas;
 
-        private BattleManager _battleManager;
+        private IPanel _panel;
+
+        public BattleManager _battleManager;
+
+        public UCard tempUCard;
 
         public HandsArea() {
           
         }
 
-        private void Awake() {
-            _battleManager = (BattleManager) transform.GetComponentInParent(_battleManager.GetType());
-            
+        protected void Start() {
+            _canvas = transform.GetComponentInChildren<Canvas>();
+            _panel = transform.GetComponentInChildren<IPanel>();
         }
 
+        private int size = 0;
+        
         public void AddCard(Card card) {
-            
-            UCard uCard = gameObject.AddComponent<UCard>();
-            UCard c2=_battleManager.GetComponentInChildren<UCard>();
-            uCard = Instantiate(c2);
-            uCard.Card = card;
-            uCard.gameObject.AddComponent<UCard>();
+            UCard temp = Instantiate(tempUCard);
+            temp.Card = card;
+            temp.transform.parent = transform;
+            size++;
+            var p=temp.transform.position;
+            temp.transform.position = new Vector3(p.x+200*size,p.y);
         }
         
     }

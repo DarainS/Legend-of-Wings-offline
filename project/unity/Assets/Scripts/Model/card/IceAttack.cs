@@ -3,15 +3,21 @@ using Model;
 using Model.damage;
 
     public class IceAttack : Card {
-        private string name;
-
-        public IceAttack() {
-            
+        
+        public IceAttack(Character c) {
+            Name = "寒冰攻击";
+            character = c;
         }
 
 
-        public void playEffect(Character target) {
+
+        public override void playEffect(Character target) {
             Damage damage = new Damage(2, DamageType.ICE);
             character.TakeDamage(damage);
         }
+
+        public override bool isUseable() {
+            return true;
+        }
+
     }
