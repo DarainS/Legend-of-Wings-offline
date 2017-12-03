@@ -4,7 +4,8 @@ using UnityEngine;
 using Model;
 
 
-    public abstract class Card : MonoBehaviour{
+    public class Card {
+        
         protected string name;
 
         public string Name {
@@ -22,14 +23,9 @@ using Model;
         public Character character;
 
 
-        public abstract void playEffect(Character target);
-
-
-        // Use this for initialization
-        void Start() {
+        public void playEffect(Character target) {
+            
         }
 
-        // Update is called once per frame
-        void Update() {
-        }
+
     }

@@ -10,7 +10,7 @@ using Model.damage;
         }
 
 
-        public override void playEffect(Character target) {
+        public void playEffect(Character target) {
             Damage damage = new Damage(2, DamageType.ICE);
             character.TakeDamage(damage);
         }

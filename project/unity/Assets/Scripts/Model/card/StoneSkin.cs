@@ -8,7 +8,7 @@ using Model.damage;
 
 class StoneSkin : Card {
 
-    public override void playEffect(Character targer) {
+    public void playEffect(Character targer) {
         CardAction<Damage, Damage> cardAction = new CardAction<Damage, Damage>(10,
             damage => {
                 damage.Num = damage.Num - 2;

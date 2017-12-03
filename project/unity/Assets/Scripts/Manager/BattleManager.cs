@@ -20,7 +20,8 @@ namespace Manager {
         void initHandsArea() {
             foreach(var card in _hero.Deck) {
                 handsArea.AddCard(card);
-                Console.WriteLine("load card: "+card.name);
+                Console.WriteLine("load card: "+card.Name);
+                
             }
         }
 

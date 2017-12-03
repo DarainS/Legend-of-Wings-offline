@@ -11,6 +11,8 @@ namespace Model {
         public Hero() {
             MaxHealth = 10;
             CurrentHealth = 6;
+            initData();
+
         }
 
         public int CurrentHealth {
@@ -38,12 +40,11 @@ namespace Model {
 
 
         void initData() {
-            deck.Add(gameObject.AddComponent<IceAttack>());
-            deck.Add(gameObject.AddComponent<StoneSkin>());
+            deck.Add(new IceAttack());
+            deck.Add(new StoneSkin());
         }
         
         void Start() {
-            initData();
             Canvas canvas = transform.GetComponentInChildren<Canvas>();
             slider = canvas.gameObject.GetComponentInChildren<Slider>();
 
