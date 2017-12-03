@@ -54,16 +54,19 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Manager\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Manager\HandsArea.cs" />
+    <Compile Include="Assets\Scripts\Model\buff\Buff.cs" />
+    <Compile Include="Assets\Scripts\Model\buff\BuffType.cs" />
     <Compile Include="Assets\Scripts\Model\Card.cs" />
     <Compile Include="Assets\Scripts\Model\card\ActionType.cs" />
     <Compile Include="Assets\Scripts\Model\card\CardAction.cs" />
+    <Compile Include="Assets\Scripts\Model\card\CardStatus.cs" />
     <Compile Include="Assets\Scripts\Model\card\CardType.cs" />
     <Compile Include="Assets\Scripts\Model\card\IceAttack.cs" />
     <Compile Include="Assets\Scripts\Model\card\StoneSkin.cs" />
-    <Compile Include="Assets\Scripts\Model\Character.cs" />
+    <Compile Include="Assets\Scripts\Model\character\Character.cs" />
+    <Compile Include="Assets\Scripts\Model\character\Hero.cs" />
     <Compile Include="Assets\Scripts\Model\damage\Damage.cs" />
     <Compile Include="Assets\Scripts\Model\damage\DamageType.cs" />
-    <Compile Include="Assets\Scripts\Model\Hero.cs" />
     <Compile Include="Assets\Scripts\Model\UCard.cs" />
     <Reference Include="UnityEngine.UI">
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

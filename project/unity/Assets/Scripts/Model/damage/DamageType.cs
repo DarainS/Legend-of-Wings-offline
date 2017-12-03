@@ -2,8 +2,13 @@
 
 namespace Model.damage {
     public enum DamageType {
-        PHYSICAL,
-        FIRE,
-        ICE
+        Physical,
+        Fire,
+        Ice,
+        Poison,
+        Real,
+        Magic,
+        Air,
+        Electricity
     }
 }

@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+
 using Model.damage;
 using UnityEngine;
 using Object = System.Object;
@@ -31,34 +33,30 @@ namespace Model {
             set { hands = value; }
         }
 
-        public int CurrentHealth {
+        public virtual int CurrentHealth {
             get { return currentHealth; }
             set { currentHealth = value; }
         }
 
 
-        public int MaxHealth {
+        public virtual int MaxHealth {
             get { return maxHealth; }
             set { maxHealth = value; }
         }
 
         public List<CardAction<Damage, Damage>> BeforeDamage {
             get { return beforeDamage; }
-
             set { beforeDamage = value; }
         }
 
         public List<CardAction<Damage, Damage>> AfterDamage {
             get { return afterDamage; }
-
             set { afterDamage = value; }
         }
 
         public void TakeDamage(Damage damage) {
             beforeDamage.Sort();
-            foreach(var action in beforeDamage) {
-                damage = action.playEffect(damage);
-            }
+            damage = beforeDamage.Aggregate(damage, (current, action) => action.playEffect(current));
 
             CurrentHealth -= damage.Num;
 
@@ -67,12 +65,11 @@ namespace Model {
             }
         }
 
-        public void sort(List<CardAction<Object, Object>> actions) {
-            actions.Sort();
-        }
+       
 
         // Use this for initialization
         void Start() {
+            
         }
 
         // Update is called once per frame

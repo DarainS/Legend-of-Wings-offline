@@ -15,18 +15,18 @@ namespace Model {
 
         }
 
-        public int CurrentHealth {
+        public override int CurrentHealth {
             get { return currentHealth; }
             set {
                 currentHealth = value;
                 if(slider != null && maxHealth != 0) {
-                    slider.value = currentHealth / maxHealth;
+                    slider.value = currentHealth;
                 }
             }
         }
 
 
-        public int MaxHealth {
+        public override int MaxHealth {
             get { return maxHealth; }
             set {
                 maxHealth = value;
@@ -45,8 +45,8 @@ namespace Model {
         }
         
         void Start() {
-            Canvas canvas = transform.GetComponentInChildren<Canvas>();
-            slider = canvas.gameObject.GetComponentInChildren<Slider>();
+
+            slider = gameObject.GetComponentInChildren<Slider>();
 
             slider.value = CurrentHealth;
             slider.maxValue = MaxHealth;

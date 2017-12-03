@@ -28,3 +28,5 @@ InspectorExpandedItems.asset
 *.meta
 
 .vscode
+ShaderCache.db
+EditorUserBuildSettings.asset

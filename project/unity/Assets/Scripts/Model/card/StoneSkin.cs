@@ -8,18 +8,20 @@ using Model.damage;
 
 public class StoneSkin : Card {
 
-    public StoneSkin(Character c ) {
+    public StoneSkin(Character c) {
         Name = "石化皮肤";
         character = c;
     }
 
-    public override void playEffect(Character targer) {
-        CardAction<Damage, Damage> cardAction = new CardAction<Damage, Damage>(10,
+    public override void playEffect(Character target) {
+        var cardAction = new CardAction<Damage, Damage>(10,
             damage => {
                 damage.Num = damage.Num - 2;
                 return damage;
             });
-        targer.BeforeDamage.Add(cardAction);
+        if(!character.BeforeDamage.Contains(cardAction)) {
+            character.BeforeDamage.Add(cardAction);
+        }
     }
 
     public override bool isUseable() {

@@ -5,24 +5,19 @@ using System.Text;
 
 namespace Model.damage {
     public class Damage {
-        int num;
 
-        public DamageType type;
+        private DamageType Type;
 
-        public int Num {
-            get { return num; }
-
-            set { num = value; }
-        }
+        public int Num { get; set; }
 
         public Damage(int num) {
-            this.num = num;
-            this.type = DamageType.PHYSICAL;
+            this.Num = num;
+            this.Type = DamageType.Physical;
         }
 
         public Damage(int num, DamageType type) {
-            this.num = num;
-            this.type = type;
+            this.Num = num;
+            this.Type = type;
         }
     }
 }

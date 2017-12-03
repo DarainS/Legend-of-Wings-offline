@@ -6,11 +6,11 @@ using Model;
 
     public abstract class Card {
         
-        protected string name;
+        protected string _name;
 
         public string Name {
-            get { return name; }
-            set { name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
 
         public string SimgleDesc {
@@ -22,9 +22,7 @@ using Model;
 
         public Character character;
 
-
-
-        public abstract void playEffect(Character target);
+        public abstract void playEffect(Character target= null);
 
         public abstract bool isUseable();
 

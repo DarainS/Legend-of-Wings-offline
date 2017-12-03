@@ -6,8 +6,6 @@ using Model;
 using Model.card;
 using Model.damage;
 
-
-
     public class CardAction<T, R> : IComparer<CardAction<T, R>> {
 
         public ActionType type;
@@ -58,7 +56,6 @@ using Model.damage;
             if(x.order < y.order) {
                 return -1;
             }
-
             return 0;
         }
 
