@@ -23,3 +23,5 @@ ScriptAssemblies
 Assembly-CSharp.csprojResolveAssemblyReference.cache
 ShaderCache
 InspectorExpandedItems.asset
+/project/unity/Library/expandedItems
+/project/unity/Library/CurrentLayout.dwlt
