@@ -3,6 +3,7 @@
 using Model;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace Manager {
@@ -13,6 +14,8 @@ namespace Manager {
         private HandsArea handsArea;
         public UCard _ucard;
 
+        public Button EndHeroTurnBtn;
+        
         public Hero Hero {
             get { return _hero; }
             set { _hero = value; }
@@ -28,12 +31,14 @@ namespace Manager {
         public void Start() {
             Hero = transform.GetComponentInChildren<Hero>();
             handsArea = transform.GetComponentInChildren<HandsArea>();
-            handsArea._battleManager = this;
+            handsArea.battleManager = this;
             _ucard = transform.GetComponentInChildren<UCard>();
             handsArea.TempUCard = _ucard;
             initHandsArea();
         }
 
+        
+        
     }
 
 }

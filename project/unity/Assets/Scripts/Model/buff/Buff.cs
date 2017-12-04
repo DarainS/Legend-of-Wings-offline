@@ -4,7 +4,16 @@ using UnityEngine.UI;
 
 namespace Model.buff {
 
-    public class Buff : MonoBehaviour {
+    public class Buff : MonoBehaviour
+    {
+
+        private Character owner;
+
+        public Character Owner
+        {
+            get { return owner; }
+            set { owner = value; }
+        }
 
         private string _name;
 

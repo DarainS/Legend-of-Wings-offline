@@ -5,14 +5,16 @@ using System.Collections.Generic;
 using UnityEngine.Experimental.UIElements;
 using Slider = UnityEngine.UI.Slider;
 
-namespace Model {
-    public class Hero : Character {
+namespace Model.character {
+    public class Hero : Character
+    {
 
+//        private List<Card> deck;
+        
         public Hero() {
             MaxHealth = 30;
             CurrentHealth = 26;
             initData();
-
         }
 
         public override int CurrentHealth {
