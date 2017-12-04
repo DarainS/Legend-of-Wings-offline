@@ -20,17 +20,17 @@ namespace Manager {
 
         private void initHandsArea() {
             foreach(var card in _hero.Deck) {
-                Console.WriteLine("load card: " + card.Name);
+                Debug.Log("load card: " + card.Name);
                 handsArea.AddCard(card);
             }
         }
 
-        void Start() {
+        public void Start() {
             Hero = transform.GetComponentInChildren<Hero>();
             handsArea = transform.GetComponentInChildren<HandsArea>();
             handsArea._battleManager = this;
             _ucard = transform.GetComponentInChildren<UCard>();
-            handsArea.tempUCard = _ucard;
+            handsArea.TempUCard = _ucard;
             initHandsArea();
         }
 
