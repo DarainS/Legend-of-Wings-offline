@@ -30,3 +30,5 @@ InspectorExpandedItems.asset
 .vscode
 ShaderCache.db
 EditorUserBuildSettings.asset
+
+*.csproj
