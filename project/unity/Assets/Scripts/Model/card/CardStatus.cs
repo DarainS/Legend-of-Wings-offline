@@ -6,7 +6,8 @@
         InGrave,
         OnBattle,
         InHands,
-        
+        Exile,
+        WaitInit,
     }
 
 }
