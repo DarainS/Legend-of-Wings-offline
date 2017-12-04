@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Model;
+using Model.character;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,30 +12,48 @@ namespace Manager {
 
     public class BattleManager : MonoBehaviour {
 
-        private Hero _hero;
+        private Hero hero;
         private HandsArea handsArea;
-        public UCard _ucard;
+        public UCard ucard;
 
         public Button EndHeroTurnBtn;
         
+        private List<UCard> heroCards= new List<UCard>(30);
+        
         public Hero Hero {
-            get { return _hero; }
-            set { _hero = value; }
+            get { return hero; }
+            set { hero = value; }
         }
 
+        private void initHeroDeckCards() {
+            foreach(var card in hero.Deck) {
+                var temp = Instantiate(ucard);
+                temp.enabled = true;
+                temp.Card = card;
+                temp.gameObject.SetActive(true);
+
+                temp.character = hero;
+                heroCards.Add(temp);
+            }
+
+        }
         private void initHandsArea() {
-            foreach(var card in _hero.Deck) {
-                Debug.Log("load card: " + card.Name);
-                handsArea.AddCard(card);
+            foreach(var ucard in heroCards) {
+                handsArea.AddCard(ucard);
             }
         }
-
+            
+        
+       
         public void Start() {
             Hero = transform.GetComponentInChildren<Hero>();
             handsArea = transform.GetComponentInChildren<HandsArea>();
             handsArea.battleManager = this;
-            _ucard = transform.GetComponentInChildren<UCard>();
-            handsArea.TempUCard = _ucard;
+            ucard = transform.GetComponentInChildren<UCard>();
+            ucard.gameObject.SetActive(false);
+            handsArea.TempUCard = ucard;
+
+            initHeroDeckCards();
             initHandsArea();
         }
 

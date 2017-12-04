@@ -17,29 +17,29 @@ namespace Model
 
         public BattleManager BattleManager;
 
-        private Card _card;
+        private Card card;
 
         public CardStatus CardStatus;
 
-        public Character Character;
+        public Character character;
         
         public Card Card
         {
-            get { return _card; }
+            get { return card; }
             set
             {
-                _card = value;
-                cardName.text = _card.Name;
-                cardSimpleDesc.text = _card.SimgleDesc;
+                card = value;
+                cardName.text = card.Name;
+                cardSimpleDesc.text = card.SimgleDesc;
             }
         }
 
         public string Name
         {
-            get { return _card.Name; }
+            get { return card.Name; }
             set
             {
-                _card.Name = value;
+                card.Name = value;
                 cardName.text = value;
             }
         }
@@ -50,7 +50,7 @@ namespace Model
             set
             {
                 cardSimpleDesc.text = value;
-                _card.SimgleDesc = value;
+                card.SimgleDesc = value;
             }
         }
 
@@ -59,7 +59,6 @@ namespace Model
         {
             initEventListenser();
         }
-        
         
 
         private void initEventListenser()
@@ -96,9 +95,9 @@ namespace Model
         private void OnClick(BaseEventData pointData)
         {
             Debug.Log("Button click. EventTrigger..");
-            if (Character.CouldUseCard(_card))
+            if (character.CouldUseCard(card))
             {
-                _card.character.PlayEffect(_card);
+                card.character.PlayEffect(card);
             }
         }
 
@@ -108,7 +107,7 @@ namespace Model
 
         private void OnMouseEnter(BaseEventData pointData)
         {
-            if (Character.CouldUseCard(_card))
+            if (character.CouldUseCard(card))
             {
                 transform.position += _positionUpper;
                 isUpper = true;

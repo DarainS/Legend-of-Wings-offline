@@ -1,5 +1,6 @@
 ﻿using System;
 using Model;
+using Model.character;
 using Model.damage;
 
     public class IceAttack : Card {
@@ -22,8 +23,5 @@ using Model.damage;
             
         }
 
-        public override bool isUseable() {
-            return true;
-        }
 
     }

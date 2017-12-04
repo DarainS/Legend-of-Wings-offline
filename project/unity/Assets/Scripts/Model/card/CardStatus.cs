@@ -4,7 +4,7 @@
 
         InDeck,
         InGrave,
-        OnBattle,
+        InYield,
         InHands,
         Exile,
         WaitInit,

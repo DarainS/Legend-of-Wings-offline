@@ -24,8 +24,5 @@ public class StoneSkin : Card {
         }
     }
 
-    public override bool isUseable() {
-        return true;
-    }
 
 }
