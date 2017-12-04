@@ -8,8 +8,6 @@ using Slider = UnityEngine.UI.Slider;
 namespace Model.character {
     public class Hero : Character
     {
-
-//        private List<Card> deck;
         
         public Hero() {
             MaxHealth = 30;
@@ -26,7 +24,6 @@ namespace Model.character {
                 }
             }
         }
-
 
         public override int MaxHealth {
             get { return maxHealth; }

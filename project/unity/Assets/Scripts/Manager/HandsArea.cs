@@ -8,29 +8,22 @@ namespace Manager {
 
     public class HandsArea : MonoBehaviour {
 
-        public BattleManager _battleManager;
-
-        public UCard TempUCard;
-
         public BattleManager battleManager;
 
-        public UCard tempUCard;
+        public RectTransform rectTransform;
 
-        protected void Start() {
-            
+        void Awake() {
+            rectTransform = GetComponent<RectTransform>();
         }
 
-        private int size = 0;
+        private int size = -2;
         
         public void AddCard(UCard uCard) {
             uCard.transform.parent = transform;
             size++;
-            uCard.transform.position += new Vector3(200*size,0);
+            uCard.rectTransform.position = rectTransform.position+new Vector3(170*size,0);
         }
 
-        private void changeHandsCardPosition() {
-            
-        }
         
     }
     

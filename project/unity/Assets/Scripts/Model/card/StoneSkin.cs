@@ -13,6 +13,10 @@ public class StoneSkin : Card {
         character = c;
     }
 
+    public override int CooldownTime() {
+        return 3;
+    }
+
     public override void PlayEffect(Character player=null,Character target=null) {
         var cardAction = new CardAction<Damage, Damage>(10,
             damage => {

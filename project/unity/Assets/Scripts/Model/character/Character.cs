@@ -20,17 +20,9 @@ namespace Model {
         protected int maxHealth;
 
         protected List<Card> deck = new List<Card>(30);
-
-        protected List<UCard> hands = new List<UCard>(10);
         
-        protected List<UCard> inPlayUCards= new List<UCard>(30);
-
         public List<Card> Deck {
             get { return deck; }
-        }
-        
-        public List<UCard> Hands {
-            get { return hands; }
         }
 
         public virtual int CurrentHealth {

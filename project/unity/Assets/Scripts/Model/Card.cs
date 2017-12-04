@@ -24,10 +24,14 @@ public abstract class Card
 
     public Character character;
 
+    public abstract int CooldownTime();
+
     public virtual void PlayEffect(Character player,Character target)
     {
         
     }
+
+
 
     public virtual bool CouldCharacterUse(Character c)
     {
