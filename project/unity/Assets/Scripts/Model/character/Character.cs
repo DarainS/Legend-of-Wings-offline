@@ -63,13 +63,12 @@ namespace Model {
             }
         }
 
-        public void PlayEffect(Card card)
+        public void PlayEffect(UCard ucard)
         {
-            card.character = this;
-            card.playEffect();
+            ucard.PlayEffect(this);
         }
 
-        public bool CouldUseCard(Card card)
+        public bool CouldUseCard(UCard card)
         {
             return card.CouldCharacterUse(this);
         }

@@ -13,7 +13,7 @@ public class StoneSkin : Card {
         character = c;
     }
 
-    public override void playEffect(Character target) {
+    public override void PlayEffect(Character player=null,Character target=null) {
         var cardAction = new CardAction<Damage, Damage>(10,
             damage => {
                 damage.Num = damage.Num - 2;

@@ -15,32 +15,45 @@ namespace Model
 
         public Text cardSimpleDesc;
 
-        public BattleManager BattleManager;
+        public BattleManager battleManager;
 
-        private Card card;
-
-        public CardStatus CardStatus;
+        public CardStatus status;
 
         public Character character;
+
+        public delegate void PlayEffect_(Character player= null, Character target=null);
+
+        public delegate bool CouldCharacterUse_(Character c);
+
+        public CouldCharacterUse_ CouldCharacterUse;
         
-        public Card Card
-        {
-            get { return card; }
-            set
-            {
-                card = value;
-                cardName.text = card.Name;
-                cardSimpleDesc.text = card.SimgleDesc;
-            }
-        }
+        public PlayEffect_ PlayEffect;
+        
+        protected string _name;
 
         public string Name
         {
-            get { return card.Name; }
-            set
-            {
-                card.Name = value;
-                cardName.text = value;
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public string SimgleDesc
+        {
+            get { return simgleDesc; }
+            set { simgleDesc = value; }
+        }
+
+        protected string simgleDesc;
+        
+        public Card Card
+        {
+            set {
+                Name = value.Name;
+                SimgleDesc = value.SimgleDesc;
+                cardName.text = Name;
+                cardSimpleDesc.text = SimgleDesc;
+                PlayEffect = value.PlayEffect;
+                CouldCharacterUse = value.CouldCharacterUse;
             }
         }
 
@@ -50,16 +63,19 @@ namespace Model
             set
             {
                 cardSimpleDesc.text = value;
-                card.SimgleDesc = value;
+                SimgleDesc = value;
             }
         }
 
-
         private void Start()
         {
+
             initEventListenser();
         }
-        
+
+        public void MoveCard(CardStatus from, CardStatus to) {
+            battleManager.MoveCard(this,from,to);
+        }
 
         private void initEventListenser()
         {
@@ -91,13 +107,13 @@ namespace Model
             entry3.callback.AddListener(OnMouseExit);
             trigger.triggers.Add(entry3);
         }
-
+        
         private void OnClick(BaseEventData pointData)
         {
             Debug.Log("Button click. EventTrigger..");
-            if (character.CouldUseCard(card))
+            if (character.CouldUseCard(this))
             {
-                card.character.PlayEffect(card);
+                character.PlayEffect(this);
             }
         }
 
@@ -107,7 +123,7 @@ namespace Model
 
         private void OnMouseEnter(BaseEventData pointData)
         {
-            if (character.CouldUseCard(card))
+            if (character.CouldUseCard(this))
             {
                 transform.position += _positionUpper;
                 isUpper = true;

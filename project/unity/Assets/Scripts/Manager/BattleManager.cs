@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Model;
+using Model.card;
 using Model.character;
 
 using UnityEngine;
@@ -17,9 +18,9 @@ namespace Manager {
         public UCard ucard;
 
         public Button EndHeroTurnBtn;
-        
-        private List<UCard> heroCards= new List<UCard>(30);
-        
+
+        private List<UCard> heroCards = new List<UCard>(30);
+
         public Hero Hero {
             get { return hero; }
             set { hero = value; }
@@ -35,16 +36,22 @@ namespace Manager {
                 temp.character = hero;
                 heroCards.Add(temp);
             }
-
         }
+
         private void initHandsArea() {
             foreach(var ucard in heroCards) {
                 handsArea.AddCard(ucard);
             }
         }
-            
-        
-       
+
+
+        public void MoveCard(UCard uCard, CardStatus from, CardStatus to) {
+            if(from == CardStatus.InHands && to == CardStatus.InYield) {
+                
+                return;
+            }
+        }
+
         public void Start() {
             Hero = transform.GetComponentInChildren<Hero>();
             handsArea = transform.GetComponentInChildren<HandsArea>();
@@ -57,8 +64,6 @@ namespace Manager {
             initHandsArea();
         }
 
-        
-        
     }
 
 }

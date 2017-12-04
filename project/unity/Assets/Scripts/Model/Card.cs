@@ -24,9 +24,9 @@ public abstract class Card
 
     public Character character;
 
-    public virtual void playEffect(Character target = null)
+    public virtual void PlayEffect(Character player,Character target)
     {
-        character.PlayEffect(this);
+        
     }
 
     public virtual bool CouldCharacterUse(Character c)
