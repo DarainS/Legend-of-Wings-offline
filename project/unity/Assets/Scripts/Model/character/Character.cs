@@ -19,18 +19,18 @@ namespace Model {
         
         protected int maxHealth;
 
-        protected List<Card> deck= new List<Card>(30);
+        protected List<Card> deck = new List<Card>(30);
+
+        protected List<UCard> hands = new List<UCard>(10);
+        
+        protected List<UCard> inPlayUCards= new List<UCard>(30);
 
         public List<Card> Deck {
             get { return deck; }
-            set { deck = value; }
         }
         
-        protected List<Card> hands= new List<Card>(10);
-
-        public List<Card> Hands {
+        public List<UCard> Hands {
             get { return hands; }
-            set { hands = value; }
         }
 
         public virtual int CurrentHealth {
@@ -46,12 +46,10 @@ namespace Model {
 
         public List<CardAction<Damage, Damage>> BeforeDamage {
             get { return beforeDamage; }
-            set { beforeDamage = value; }
         }
 
         public List<CardAction<Damage, Damage>> AfterDamage {
             get { return afterDamage; }
-            set { afterDamage = value; }
         }
 
         public void TakeDamage(Damage damage) {
@@ -65,7 +63,16 @@ namespace Model {
             }
         }
 
-       
+        public void PlayEffect(Card card)
+        {
+            card.character = this;
+            card.playEffect();
+        }
+
+        public bool CouldUseCard(Card card)
+        {
+            return card.CouldCharacterUse(this);
+        }
 
         // Use this for initialization
         void Start() {

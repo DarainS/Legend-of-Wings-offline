@@ -26,11 +26,12 @@ public abstract class Card
 
     public virtual void playEffect(Character target = null)
     {
-        
+        character.PlayEffect(this);
     }
 
-    public virtual bool isUseable()
+    public virtual bool CouldCharacterUse(Character c)
     {
         return true;
     }
+
 }

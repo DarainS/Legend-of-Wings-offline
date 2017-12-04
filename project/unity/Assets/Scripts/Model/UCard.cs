@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Manager;
 using Model.card;
 using UnityEngine;
@@ -19,6 +20,8 @@ namespace Model
         private Card _card;
 
         public CardStatus CardStatus;
+
+        public Character Character;
         
         public Card Card
         {
@@ -93,9 +96,9 @@ namespace Model
         private void OnClick(BaseEventData pointData)
         {
             Debug.Log("Button click. EventTrigger..");
-            if (_card.isUseable())
+            if (Character.CouldUseCard(_card))
             {
-                _card.playEffect();
+                _card.character.PlayEffect(_card);
             }
         }
 
@@ -105,7 +108,7 @@ namespace Model
 
         private void OnMouseEnter(BaseEventData pointData)
         {
-            if (_card.isUseable())
+            if (Character.CouldUseCard(_card))
             {
                 transform.position += _positionUpper;
                 isUpper = true;

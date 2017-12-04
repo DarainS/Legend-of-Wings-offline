@@ -6,8 +6,11 @@ using UnityEngine.Experimental.UIElements;
 using Slider = UnityEngine.UI.Slider;
 
 namespace Model.character {
-    public class Hero : Character {
+    public class Hero : Character
+    {
 
+//        private List<Card> deck;
+        
         public Hero() {
             MaxHealth = 30;
             CurrentHealth = 26;
