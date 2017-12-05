@@ -1,7 +1,7 @@
-﻿
+﻿namespace Model.damage {
 
-namespace Model.damage {
     public enum DamageType {
+
         Physical,
         Fire,
         Ice,
@@ -10,5 +10,7 @@ namespace Model.damage {
         Magic,
         Air,
         Electricity
+
     }
+
 }

@@ -1,6 +1,8 @@
-﻿    public enum CardType {
-        SPELL,
-        ATTACK,
-        ENERGY,
-        EQUIPMENT
-    }
+﻿public enum CardType {
+
+    SPELL,
+    ATTACK,
+    ENERGY,
+    EQUIPMENT
+
+}

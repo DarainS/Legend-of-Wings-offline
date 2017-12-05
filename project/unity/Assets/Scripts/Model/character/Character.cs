@@ -1,26 +1,31 @@
 ﻿using Model;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 using Model.damage;
+
 using UnityEngine;
+
 using Object = System.Object;
 
+
 namespace Model {
+
     public class Character : MonoBehaviour {
-        
+
         protected List<CardAction<Damage, Damage>> beforeDamage = new List<CardAction<Damage, Damage>>();
 
         protected List<CardAction<Damage, Damage>> afterDamage = new List<CardAction<Damage, Damage>>();
 
         protected int currentHealth;
-        
+
         protected int maxHealth;
 
         protected List<Card> deck = new List<Card>(30);
-        
+
         public List<Card> Deck {
             get { return deck; }
         }
@@ -55,23 +60,22 @@ namespace Model {
             }
         }
 
-        public void PlayEffect(UCard ucard)
-        {
+        public void PlayEffect(UCard ucard) {
             ucard.PlayEffect(this);
         }
 
-        public bool CouldUseCard(UCard card)
-        {
+        public bool CouldUseCard(UCard card) {
             return card.CouldCharacterUse(this);
         }
 
         // Use this for initialization
         void Start() {
-            
         }
 
         // Update is called once per frame
         void Update() {
         }
+
     }
+
 }

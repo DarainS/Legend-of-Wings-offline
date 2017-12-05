@@ -1,14 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine.Experimental.UIElements;
+
 using Slider = UnityEngine.UI.Slider;
 
+
 namespace Model.character {
-    public class Hero : Character
-    {
-        
+
+    public class Hero : Character {
+
         public Hero() {
             MaxHealth = 30;
             CurrentHealth = 26;
@@ -41,16 +45,17 @@ namespace Model.character {
         void initData() {
             deck.Add(new IceAttack(this));
             deck.Add(new StoneSkin(this));
+            deck.Add(new IceAttack(this));
+            deck.Add(new IceAttack(this));
         }
-        
-        void Start() {
 
+        void Start() {
             slider = gameObject.GetComponentInChildren<Slider>();
 
             slider.value = CurrentHealth;
             slider.maxValue = MaxHealth;
         }
 
-        
     }
+
 }

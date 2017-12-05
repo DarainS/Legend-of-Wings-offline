@@ -14,11 +14,14 @@ namespace Manager {
     public class BattleManager : MonoBehaviour {
 
         private Hero hero;
-        
+
         private HandsArea handsArea;
 
         public YieldArea yieldArea;
-        
+
+        public DeckArea deckArea;
+
+
         public UCard ucard;
 
         public Button EndHeroTurnBtn;
@@ -42,10 +45,15 @@ namespace Manager {
         }
 
 
-        public void MoveCard(UCard ucard, CardStatus from, CardStatus to) {
+        public void MoveCard(UCard card, CardStatus from, CardStatus to) {
             if(from == CardStatus.InHands && to == CardStatus.InYield) {
-                yieldArea.AddCard(ucard);
+                handsArea.RemoveCard(card);
+                yieldArea.AddCard(card);
                 return;
+            }
+
+            if(from == CardStatus.InYield && to == CardStatus.InDeck) {
+                yieldArea.RemoveCard(card);
             }
         }
 
@@ -55,7 +63,7 @@ namespace Manager {
             handsArea.battleManager = this;
 
             yieldArea = GetComponentInChildren<YieldArea>();
-            
+
             ucard = transform.GetComponentInChildren<UCard>();
             ucard.gameObject.SetActive(false);
 

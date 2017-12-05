@@ -4,13 +4,11 @@ using UnityEngine.UI;
 
 namespace Model.buff {
 
-    public class Buff : MonoBehaviour
-    {
+    public class Buff : MonoBehaviour {
 
         private Character owner;
 
-        public Character Owner
-        {
+        public Character Owner {
             get { return owner; }
             set { owner = value; }
         }
@@ -20,7 +18,7 @@ namespace Model.buff {
         private string _desc;
 
         private Image _image;
-        
+
         public BuffType Type;
 
         public string Name {
@@ -38,9 +36,8 @@ namespace Model.buff {
             set { _image = value; }
         }
 
-        
+
         private void Start() {
-                
         }
 
     }

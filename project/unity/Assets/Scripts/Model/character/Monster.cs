@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 
-namespace Model.character
-{
-    public class Monster : Character
-    {
-        
+
+namespace Model.character {
+
+    public class Monster : Character {
+
     }
-} 
+
+}

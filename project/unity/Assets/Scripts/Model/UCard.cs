@@ -1,8 +1,4 @@
-﻿using System;
-
-using JetBrains.Annotations;
-
-using Manager;
+﻿using Manager;
 
 using Model.card;
 
@@ -36,29 +32,25 @@ namespace Model {
         public RectTransform rectTransform;
 
         public int CooldownTime { get; set; }
-        
+
         public int FirstCooldown { get; set; }
 
-        public int CurrentCooldown
-        {
-            get;
-            set;
+        public int CurrentCooldown { get; set; }
+
+        private string _name;
+
+        public string Name {
+            get { return _name; }
+            set {
+                name = value;
+                _name = name;
+            }
         }
 
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        public string SimgleDesc
-        {
-            get;
-            set;
-        }
+        public string SimgleDesc { get; set; }
 
         public int StartCooldown { get; set; }
-        
+
         public Card Card {
             set {
                 Name = value.Name;
@@ -67,10 +59,10 @@ namespace Model {
                 cardSimpleDesc.text = SimgleDesc;
                 CooldownTime = value.CooldownTime;
                 CurrentCooldown = CooldownTime;
-                
+
                 PlayEffect = value.PlayEffect;
                 PlayEffect += AfterPlayEffect;
-                
+
                 CouldCharacterUse = value.CouldCharacterUse;
             }
         }
@@ -128,6 +120,7 @@ namespace Model {
             if(character.CouldUseCard(this)) {
                 character.PlayEffect(this);
             }
+            isUpper = false;
         }
 
         private readonly Vector3 _positionUpper = new Vector3(0, 50);
@@ -136,14 +129,14 @@ namespace Model {
 
         private void OnMouseEnter(BaseEventData pointData) {
             if(character.CouldUseCard(this)) {
-                transform.position += _positionUpper;
+                rectTransform.position += _positionUpper;
                 isUpper = true;
             }
         }
 
         private void OnMouseExit(BaseEventData pointData) {
             if(isUpper) {
-                transform.position -= _positionUpper;
+                rectTransform.position -= _positionUpper;
                 isUpper = false;
             }
         }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 namespace Model.damage {
+
     public class Damage {
 
         private DamageType Type;
@@ -19,5 +21,7 @@ namespace Model.damage {
             this.Num = num;
             this.Type = type;
         }
+
     }
+
 }

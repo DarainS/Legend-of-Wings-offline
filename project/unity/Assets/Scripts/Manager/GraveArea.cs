@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Manager {
 
-    public class DeckArea : BaseCardAreaManager {
+    public class GraveArea : BaseCardAreaManager {
 
         public override void AddCard(UCard card) {
             cards.Add(card);

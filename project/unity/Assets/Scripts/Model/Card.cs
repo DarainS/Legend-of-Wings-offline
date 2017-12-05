@@ -1,23 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
+
 using Model;
 
 
-public abstract class Card
-{
+public abstract class Card {
 
-    public string Name
-    {
-        get;
-        set;
-    }
+    public string Name { get; set; }
 
-    public string SimgleDesc
-    {
-        get;
-        set;
-    }
+    public string SimgleDesc { get; set; }
 
 
     public Character character;
@@ -27,23 +20,20 @@ public abstract class Card
     protected int firstCooldown;
 
 
-    public int FirstCooldown
-    {
+    public int FirstCooldown {
         get { return firstCooldown; }
         set { firstCooldown = value; }
     }
 
-    public int CooldownTime { 
+    public int CooldownTime {
         get { return cooldownTime; }
-        set { cooldownTime = value; } }
-
-    public virtual void PlayEffect(Character player,Character target)
-    {
-        
+        set { cooldownTime = value; }
     }
 
-    public virtual bool CouldCharacterUse(Character c)
-    {
+    public virtual void PlayEffect(Character player, Character target) {
+    }
+
+    public virtual bool CouldCharacterUse(Character c) {
         return true;
     }
 

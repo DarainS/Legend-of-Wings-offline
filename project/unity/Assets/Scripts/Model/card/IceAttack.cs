@@ -6,8 +6,6 @@ using Model.damage;
 
 
 public class IceAttack : Card {
-    
-    
 
     public IceAttack(Character c) {
         Name = "寒冰攻击";
