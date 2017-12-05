@@ -23,7 +23,6 @@ namespace Manager {
 
         public Button EndHeroTurnBtn;
 
-        private List<UCard> heroCards = new List<UCard>(30);
 
         public Hero Hero {
             get { return hero; }
@@ -38,13 +37,7 @@ namespace Manager {
                 temp.gameObject.SetActive(true);
 
                 temp.character = hero;
-                heroCards.Add(temp);
-            }
-        }
-
-        private void initHandsArea() {
-            foreach(var ucard in heroCards) {
-                handsArea.AddCard(ucard);
+                handsArea.AddCard(temp);
             }
         }
 
@@ -67,7 +60,6 @@ namespace Manager {
             ucard.gameObject.SetActive(false);
 
             initHeroDeckCards();
-            initHandsArea();
         }
 
     }
