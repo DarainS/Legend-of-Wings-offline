@@ -12,10 +12,8 @@ public class IceAttack : Card {
     public IceAttack(Character c) {
         Name = "寒冰攻击";
         character = c;
-    }
-
-    public override int CooldownTime() {
-        return 1;
+        cooldownTime = 2;
+        firstCooldown = 1;
     }
 
     public override void PlayEffect(Character player = null, Character target = null) {

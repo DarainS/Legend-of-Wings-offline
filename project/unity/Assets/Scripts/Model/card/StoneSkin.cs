@@ -11,12 +11,11 @@ public class StoneSkin : Card {
     public StoneSkin(Character c) {
         Name = "石化皮肤";
         character = c;
+        cooldownTime = 3;
+        firstCooldown = 2;
     }
 
-    public override int CooldownTime() {
-        return 3;
-    }
-
+   
     public override void PlayEffect(Character player=null,Character target=null) {
         var cardAction = new CardAction<Damage, Damage>(10,
             damage => {

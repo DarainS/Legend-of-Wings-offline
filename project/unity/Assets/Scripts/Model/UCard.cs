@@ -36,35 +36,36 @@ namespace Model {
         public RectTransform rectTransform;
 
         public int CooldownTime { get; set; }
+        
+        public int FirstCooldown { get; set; }
 
-        public int currentCooldown;
-
-        public int CurrentCooldown {
-            get { return currentCooldown; }
-            set { currentCooldown = value; }
+        public int CurrentCooldown
+        {
+            get;
+            set;
         }
 
-        protected string _name;
-
-        public string Name {
-            get { return _name; }
-            set { _name = value; }
+        public string Name
+        {
+            get;
+            set;
         }
 
-        public string SimgleDesc {
-            get { return simgleDesc; }
-            set { simgleDesc = value; }
+        public string SimgleDesc
+        {
+            get;
+            set;
         }
 
-        protected string simgleDesc;
-
+        public int StartCooldown { get; set; }
+        
         public Card Card {
             set {
                 Name = value.Name;
                 SimgleDesc = value.SimgleDesc;
                 cardName.text = Name;
                 cardSimpleDesc.text = SimgleDesc;
-                CooldownTime = value.CooldownTime();
+                CooldownTime = value.CooldownTime;
                 CurrentCooldown = CooldownTime;
                 
                 PlayEffect = value.PlayEffect;

@@ -6,32 +6,41 @@ using Model;
 
 public abstract class Card
 {
-    protected string _name;
 
     public string Name
     {
-        get { return _name; }
-        set { _name = value; }
+        get;
+        set;
     }
 
     public string SimgleDesc
     {
-        get { return simgleDesc; }
-        set { simgleDesc = value; }
+        get;
+        set;
     }
 
-    protected string simgleDesc;
 
     public Character character;
 
-    public abstract int CooldownTime();
+    protected int cooldownTime;
+
+    protected int firstCooldown;
+
+
+    public int FirstCooldown
+    {
+        get { return firstCooldown; }
+        set { firstCooldown = value; }
+    }
+
+    public int CooldownTime { 
+        get { return cooldownTime; }
+        set { cooldownTime = value; } }
 
     public virtual void PlayEffect(Character player,Character target)
     {
         
     }
-
-
 
     public virtual bool CouldCharacterUse(Character c)
     {
