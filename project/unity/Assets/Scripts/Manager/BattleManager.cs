@@ -6,6 +6,7 @@ using Model.card;
 using Model.character;
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -21,6 +22,7 @@ namespace Manager {
 
         public DeckArea deckArea;
 
+        public GraveArea graveArea;
 
         public UCard ucard;
 
@@ -68,6 +70,15 @@ namespace Manager {
             ucard.gameObject.SetActive(false);
 
             initHeroDeckCards();
+
+        }
+
+        public void OnHeroTurnEnd() {
+            Debug.Log(" hero turn end");
+            foreach(var card in yieldArea.cards) {
+                graveArea.AddCard(card);
+            }
+            yieldArea.RemoveAllCard();
         }
 
     }

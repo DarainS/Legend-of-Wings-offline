@@ -9,6 +9,7 @@ namespace Manager {
 
         public override void AddCard(UCard card) {
             cards.Add(card);
+            card.gameObject.SetActive(false);
         }
 
         public override void RemoveCard(UCard card) {

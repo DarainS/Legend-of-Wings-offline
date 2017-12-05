@@ -20,14 +20,14 @@ namespace Manager {
 
         private int size = -2;
 
-        public override void AddCard(UCard uCard) {
-            uCard.transform.parent = transform;
+        public override void AddCard(UCard card) {
+            card.gameObject.SetActive(true);
+            card.transform.parent = transform;
             size++;
-            uCard.rectTransform.position = rectTransform.position + new Vector3(170 * size, 0);
+            card.rectTransform.position = rectTransform.position + new Vector3(170 * size, 0);
         }
 
         public override void RemoveCard(UCard card) {
-            card.gameObject.SetActive(false);
             cards.Remove(card);
         }
 
