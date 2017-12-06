@@ -15,6 +15,8 @@ namespace Manager {
 
         public abstract void RemoveCard(UCard card);
 
+        public abstract void ChangeAreaView();
+
     }
 
 }

@@ -34,10 +34,14 @@ namespace Manager {
             set { hero = value; }
         }
 
+        public Monster Monster {
+            get;
+            set;
+        }
+
         private void initHeroDeckCards() {
             foreach(var card in hero.Deck) {
                 var temp = Instantiate(ucard);
-                temp.enabled = true;
                 temp.Card = card;
                 temp.gameObject.SetActive(true);
 

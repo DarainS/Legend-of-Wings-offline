@@ -13,7 +13,7 @@ namespace Manager {
             rectTransform = GetComponent<RectTransform>();
         }
 
-        public void changeCardsPosition() {
+        private void changeCardsPosition() {
             var n = cards.Count;
             var w = 160;
             var total = (n - 1) * w;
@@ -27,17 +27,22 @@ namespace Manager {
             card.gameObject.SetActive(true);
             card.transform.parent = transform;
             cards.Add(card);
-            changeCardsPosition();
+            ChangeAreaView();
         }
 
         public override void RemoveCard(UCard card) {
             cards.Remove(card);
+            ChangeAreaView();
+        }
+
+        public override void ChangeAreaView() {
             changeCardsPosition();
+            
         }
 
         public void RemoveAllCard() {
             cards.Clear();
-            changeCardsPosition();
+            ChangeAreaView();
         }
     }
 

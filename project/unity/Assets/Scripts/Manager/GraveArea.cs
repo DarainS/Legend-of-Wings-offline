@@ -16,6 +16,10 @@ namespace Manager {
             cards.Remove(card);
         }
 
+        public override void ChangeAreaView() {
+            throw new System.NotImplementedException();
+        }
+
     }
 
 }

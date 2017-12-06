@@ -3,13 +3,23 @@
     public enum DamageType {
 
         Physical,
-        Fire,
-        Ice,
-        Poison,
-        Real,
+        
         Magic,
+        Fire,
+        Water,
+        Ice,
+        Earth,
+
         Air,
-        Electricity
+        Nature,
+        Electricity,
+
+        Poison,
+
+        Light,
+        Dark,
+        
+        Real,
 
     }
 
