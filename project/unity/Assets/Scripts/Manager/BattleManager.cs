@@ -64,17 +64,21 @@ namespace Manager {
         }
 
         public void Start() {
+            initCardAreas();
+            
             Hero = GetComponentInChildren<Hero>();
-            handsArea = GetComponentInChildren<HandsArea>();
-            handsArea.battleManager = this;
-
-            yieldArea = GetComponentInChildren<YieldArea>();
 
             ucard = transform.GetComponentInChildren<UCard>();
             ucard.gameObject.SetActive(false);
 
             initHeroDeckCards();
 
+        }
+
+        private void initCardAreas() {
+            handsArea = GetComponentInChildren<HandsArea>();
+            handsArea.battleManager = this;
+            yieldArea = GetComponentInChildren<YieldArea>();
         }
 
         public void OnHeroTurnEnd() {

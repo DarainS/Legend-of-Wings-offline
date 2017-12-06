@@ -8,18 +8,18 @@ namespace Model.damage {
 
     public class Damage {
 
-        private DamageType Type;
+        private DamageType Type { get; set; }
 
         public int Num { get; set; }
 
         public Damage(int num) {
-            this.Num = num;
-            this.Type = DamageType.Physical;
+            Num = num;
+            Type = DamageType.Physical;
         }
 
         public Damage(int num, DamageType type) {
-            this.Num = num;
-            this.Type = type;
+            Num = num;
+            Type = type;
         }
 
     }
