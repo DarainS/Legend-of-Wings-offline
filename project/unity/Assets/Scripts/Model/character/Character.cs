@@ -74,6 +74,7 @@ namespace Model {
 
         // Use this for initialization
         void Start() {
+            manager = GetComponentInParent<BattleManager>();
         }
 
         // Update is called once per frame

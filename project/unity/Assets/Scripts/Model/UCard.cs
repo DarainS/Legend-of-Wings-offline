@@ -75,23 +75,16 @@ namespace Model {
                 cardName.text = Name;
                 cardSimpleDesc.text = SimgleDesc;
                 MaxCooldownTime = value.CooldownTime;
-                CurrentCooldown = MaxCooldownTime;
+                CurrentCooldown = value.FirstCooldown;
                 value.uCard = this;
 
                 PlayEffect = value.PlayEffect;
                 PlayEffect += AfterPlayEffect;
 
-                CouldCharacterUse += value.CouldCharacterUse;
+                CouldCharacterUse = value.CouldCharacterUse;
             }
         }
 
-        private bool couldCharacterUse(BattleManager manager, Character user) {
-            if(CurrentCooldown == 0) {
-                return true;
-            }
-
-            return false;
-        }
 
         public string SimpleDesc {
             get { return cardSimpleDesc.text; }
@@ -106,7 +99,6 @@ namespace Model {
                 CurrenCooldownText.text = "";
                 return;
             }
-
             CurrenCooldownText.text = "" + CurrentCooldown;
         }
 
@@ -185,7 +177,6 @@ namespace Model {
                 return 1;
             }
             
-
             return 0;
         }
 

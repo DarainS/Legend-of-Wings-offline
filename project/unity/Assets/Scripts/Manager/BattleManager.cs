@@ -14,8 +14,6 @@ namespace Manager {
 
     public class BattleManager : MonoBehaviour {
 
-        private Hero hero;
-
         private HandsArea handsArea;
 
         public YieldArea yieldArea;
@@ -31,21 +29,19 @@ namespace Manager {
         private List<UCard> allCards= new List<UCard>();
 
 
-        public Hero Hero {
-            get { return hero; }
-            set { hero = value; }
-        }
+        public Hero Hero { get; set; }
 
         public Monster Monster;
 
         private void initHeroDeckCards() {
-            foreach(var card in hero.Deck) {
+            foreach(var card in Hero.Deck) {
                 var temp = Instantiate(ucard);
                 temp.Card = card;
-                temp.character = hero;
+                temp.character = Hero;
                 deckArea.AddCard(temp);
                 allCards.Add(temp);
             }
+            deckArea.cards.Sort();
         }
 
 
@@ -56,8 +52,10 @@ namespace Manager {
                 return;
             }
 
-            if(from == CardStatus.InYield && to == CardStatus.InDeck) {
+            if(from == CardStatus.InYield && to == CardStatus.InGrave) {
                 yieldArea.RemoveCard(card);
+                graveArea.AddCard(card);
+                return;
             }
         }
 
@@ -70,11 +68,11 @@ namespace Manager {
         }
 
         private void beginBattle() {
-            DrawCard(hero, 2);
+            DrawCard(Hero, 2);
         }
 
         private void GoTurnsOn() {
-            DrawCard(hero,1);
+            DrawCard(Hero,1);
         }
 
         public void Shuffle() {
@@ -99,7 +97,6 @@ namespace Manager {
                     deckArea.RemoveCard(temp);
                     handsArea.AddCard(temp);
                 }
-               
             }
         }
         
@@ -112,7 +109,7 @@ namespace Manager {
             
             Hero = GetComponentInChildren<Hero>();
             Monster = GetComponentInChildren<Monster>();
-            ucard = transform.GetComponentInChildren<UCard>();
+            ucard = GetComponentInChildren<UCard>();
             ucard.gameObject.SetActive(false);
             
         }
@@ -138,7 +135,6 @@ namespace Manager {
             graveArea.ResetCardsCooldown();
             
             deleteAllCardsCooldown();
-            
             GoTurnsOn();
             
         }
