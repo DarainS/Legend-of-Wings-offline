@@ -8,6 +8,7 @@ namespace Manager {
     public class GraveArea : BaseCardAreaManager {
 
         public override void AddCard(UCard card) {
+            card.transform.parent = transform;
             card.gameObject.SetActive(false);
             cards.Add(card);
         }

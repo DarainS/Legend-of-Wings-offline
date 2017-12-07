@@ -23,6 +23,7 @@ namespace Manager {
         public override void AddCard(UCard card) {
             card.gameObject.SetActive(true);
             card.transform.parent = transform;
+            cards.Add(card);
             ChangeAreaView();
         }
 
