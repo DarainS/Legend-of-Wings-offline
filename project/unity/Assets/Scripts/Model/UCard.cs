@@ -1,4 +1,6 @@
-﻿using Manager;
+﻿using System;
+
+using Manager;
 
 using Model.card;
 
@@ -9,7 +11,7 @@ using UnityEngine.UI;
 
 namespace Model {
 
-    public class UCard : MonoBehaviour {
+    public class UCard : MonoBehaviour, IComparable<UCard> {
 
         public Text cardName;
 
@@ -21,9 +23,11 @@ namespace Model {
 
         public Character character;
 
-        public delegate void PlayEffect_(BattleManager manager,Character player);
+        public Text CurrenCooldownText;
 
-        public delegate bool CouldCharacterUse_(Character c);
+        public delegate void PlayEffect_(BattleManager manager, Character player);
+
+        public delegate bool CouldCharacterUse_(BattleManager manager, Character c);
 
         public CouldCharacterUse_ CouldCharacterUse;
 
@@ -31,11 +35,24 @@ namespace Model {
 
         public RectTransform rectTransform;
 
-        public int CooldownTime { get; set; }
+        public int MaxCooldownTime { get; set; }
 
         public int FirstCooldown { get; set; }
 
-        public int CurrentCooldown { get; set; }
+        private int _currentCooldown;
+
+        public int CurrentCooldown {
+            get { return _currentCooldown; }
+            set {
+                _currentCooldown = value;
+                if(value == 0) {
+                    CurrenCooldownText.text = "";
+                }
+                else {
+                    CurrenCooldownText.text = "" + value;
+                }
+            }
+        }
 
         private string _name;
 
@@ -57,14 +74,23 @@ namespace Model {
                 SimgleDesc = value.SimgleDesc;
                 cardName.text = Name;
                 cardSimpleDesc.text = SimgleDesc;
-                CooldownTime = value.CooldownTime;
-                CurrentCooldown = CooldownTime;
+                MaxCooldownTime = value.CooldownTime;
+                CurrentCooldown = MaxCooldownTime;
+                value.uCard = this;
 
                 PlayEffect = value.PlayEffect;
                 PlayEffect += AfterPlayEffect;
 
-                CouldCharacterUse = value.CouldCharacterUse;
+                CouldCharacterUse += value.CouldCharacterUse;
             }
+        }
+
+        private bool couldCharacterUse(BattleManager manager, Character user) {
+            if(CurrentCooldown == 0) {
+                return true;
+            }
+
+            return false;
         }
 
         public string SimpleDesc {
@@ -75,12 +101,21 @@ namespace Model {
             }
         }
 
+        private void Awake() {
+            if(CurrentCooldown == 0) {
+                CurrenCooldownText.text = "";
+                return;
+            }
+
+            CurrenCooldownText.text = "" + CurrentCooldown;
+        }
+
         private void Start() {
             initEventListenser();
             rectTransform = GetComponent<RectTransform>();
         }
 
-        public void AfterPlayEffect(BattleManager manager,Character player) {
+        public void AfterPlayEffect(BattleManager manager, Character player) {
             MoveCard(CardStatus.InHands, CardStatus.InYield);
         }
 
@@ -139,6 +174,19 @@ namespace Model {
                 rectTransform.position -= _positionUpper;
                 isUpper = false;
             }
+        }
+
+        public int CompareTo(UCard other) {
+            if(CurrentCooldown > other.CurrentCooldown) {
+                return -1;
+            }
+
+            if(CurrentCooldown < other.CurrentCooldown) {
+                return 1;
+            }
+            
+
+            return 0;
         }
 
     }

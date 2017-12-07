@@ -11,6 +11,7 @@ public class StoneSkin : Card {
 
     public StoneSkin(Character c) {
         Name = "石化皮肤";
+        SimgleDesc = "直到下回合开始，获得2点伤害减免";
         character = c;
         cooldownTime = 3;
         firstCooldown = 2;

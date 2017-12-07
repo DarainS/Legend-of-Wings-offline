@@ -18,11 +18,9 @@ namespace Manager {
             rectTransform = GetComponent<RectTransform>();
         }
 
-        private int size = -2;
-
         public override void AddCard(UCard card) {
             card.gameObject.SetActive(true);
-            card.transform.parent = transform;
+            card.transform.SetParent(transform);
             cards.Add(card);
             ChangeAreaView();
         }
@@ -37,12 +35,14 @@ namespace Manager {
         }
 
         private void changeCardPosition() {
+            cards.Sort();
             var n = cards.Count;
             const int w = 180;
             var total = (n - 1) * w;
             var begin = -(total / 2);
             for(var i = 0; i < n; i++) {
                 cards[i].rectTransform.position = new Vector3(begin + w * i, 0) + rectTransform.position;
+                cards[i].transform.SetSiblingIndex(i);
             }
         }
 

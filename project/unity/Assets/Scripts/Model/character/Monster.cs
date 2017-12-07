@@ -46,7 +46,7 @@ namespace Model.character {
         }
 
         void Start() {
-            battleManager = GetComponentInParent<BattleManager>();
+            manager = GetComponentInParent<BattleManager>();
 
             slider = gameObject.GetComponentInChildren<Slider>();
             RectTransform = GetComponent<RectTransform>();

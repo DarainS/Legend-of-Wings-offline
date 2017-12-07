@@ -28,6 +28,8 @@ namespace Manager {
 
         public Button EndHeroTurnBtn;
 
+        private List<UCard> allCards= new List<UCard>();
+
 
         public Hero Hero {
             get { return hero; }
@@ -42,6 +44,7 @@ namespace Manager {
                 temp.Card = card;
                 temp.character = hero;
                 deckArea.AddCard(temp);
+                allCards.Add(temp);
             }
         }
 
@@ -114,12 +117,28 @@ namespace Manager {
             
         }
 
+        private void deleteAllCardsCooldown() {
+            foreach(var card in allCards) {
+                if(card.CurrentCooldown==0) {
+                    continue;
+                }
+                card.CurrentCooldown -= 1;
+            }
+        }
+
         public void OnHeroTurnEnd() {
             Debug.Log(" hero turn end");
-            foreach(var card in yieldArea.cards) {
-                graveArea.AddCard(card);
+
+            for(int i = yieldArea.cards.Count - 1; i >= 0; i--) {
+                var temp = yieldArea.cards[i];
+                yieldArea.RemoveCard(temp);
+                graveArea.AddCard(temp);
             }
-            yieldArea.RemoveAllCard();
+
+            graveArea.ResetCardsCooldown();
+            
+            deleteAllCardsCooldown();
+            
             GoTurnsOn();
             
         }

@@ -28,7 +28,7 @@ namespace Model {
 
         protected List<Card> deck = new List<Card>(30);
 
-        public BattleManager battleManager;
+        public BattleManager manager;
 
         public List<Card> Deck {
             get { return deck; }
@@ -65,11 +65,11 @@ namespace Model {
         }
 
         public void PlayEffect(UCard ucard) {
-            ucard.PlayEffect(battleManager,this);
+            ucard.PlayEffect(manager,this);
         }
 
         public bool CouldUseCard(UCard card) {
-            return card.CouldCharacterUse(this);
+            return card.CouldCharacterUse(manager,this);
         }
 
         // Use this for initialization

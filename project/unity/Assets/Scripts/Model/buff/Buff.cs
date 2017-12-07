@@ -16,11 +16,16 @@ namespace Model.buff {
 
         private Image _image;
 
+        private Text nameText;
+
         public BuffType Type;
 
         public string Name {
             get { return _name; }
-            set { _name = value; }
+            set {
+                _name = value;
+                nameText.text = _name;
+            }
         }
 
         public string Desc {

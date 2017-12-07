@@ -8,8 +8,8 @@ namespace Manager {
     public class GraveArea : BaseCardAreaManager {
 
         public override void AddCard(UCard card) {
-            card.transform.parent = transform;
             card.gameObject.SetActive(false);
+            card.transform.SetParent(transform);
             cards.Add(card);
         }
 
@@ -19,6 +19,12 @@ namespace Manager {
 
         public override void ChangeAreaView() {
             throw new System.NotImplementedException();
+        }
+
+        public void ResetCardsCooldown() {
+            foreach(var card in cards) {
+                card.CurrentCooldown = card.MaxCooldownTime;
+            }
         }
 
     }

@@ -24,6 +24,7 @@ public abstract class Card {
 
     protected int firstCooldown;
 
+    public UCard uCard;
 
     public int FirstCooldown {
         get { return firstCooldown; }
@@ -49,8 +50,8 @@ public abstract class Card {
         
     }
 
-    public virtual bool CouldCharacterUse(Character c) {
-        return true;
+    public virtual bool CouldCharacterUse(BattleManager manager,Character user) {
+        return uCard.CurrentCooldown<=0;
     }
 
 }
