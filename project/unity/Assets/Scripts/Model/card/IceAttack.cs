@@ -17,17 +17,6 @@ public class IceAttack : Card {
         firstCooldown = 1;
     }
 
-    public Character ChooseTarget(BattleManager manager, Character user) {
-        if(user as Hero) {
-            return manager.Monster;
-        }
-
-        if(user as Monster) {
-            return manager.Hero;
-        }
-
-        throw new Exception();
-    }
 
     public override void PlayEffect(BattleManager manager, Character user) {
         Damage damage = new Damage(2, DamageType.Ice, character);

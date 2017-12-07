@@ -14,10 +14,8 @@ namespace Model.character {
 
     public class Hero : Character {
 
-
         Hero() {
             initData();
-
         }
         
         public override int CurrentHealth {
