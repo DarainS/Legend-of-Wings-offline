@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
+using Manager;
+
 using UnityEngine;
 
 using Model;
@@ -11,7 +13,6 @@ public abstract class Card {
     public string Name { get; set; }
 
     public string SimgleDesc { get; set; }
-
 
     public Character character;
 
@@ -30,7 +31,8 @@ public abstract class Card {
         set { cooldownTime = value; }
     }
 
-    public virtual void PlayEffect(Character player, Character target) {
+    public virtual void PlayEffect(BattleManager manager, Character user) {
+        
     }
 
     public virtual bool CouldCharacterUse(Character c) {

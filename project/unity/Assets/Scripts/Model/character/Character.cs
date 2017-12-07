@@ -5,6 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+using Manager;
+
 using Model.damage;
 
 using UnityEngine;
@@ -25,6 +27,8 @@ namespace Model {
         protected int maxHealth;
 
         protected List<Card> deck = new List<Card>(30);
+
+        public BattleManager battleManager;
 
         public List<Card> Deck {
             get { return deck; }
@@ -61,7 +65,7 @@ namespace Model {
         }
 
         public void PlayEffect(UCard ucard) {
-            ucard.PlayEffect(this);
+            ucard.PlayEffect(battleManager,this);
         }
 
         public bool CouldUseCard(UCard card) {

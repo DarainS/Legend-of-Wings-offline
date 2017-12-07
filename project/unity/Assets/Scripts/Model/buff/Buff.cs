@@ -6,12 +6,9 @@ namespace Model.buff {
 
     public class Buff : MonoBehaviour {
 
-        private Character owner;
+        public Character Source { get; set; }
 
-        public Character Owner {
-            get { return owner; }
-            set { owner = value; }
-        }
+        public Character Owner { get; set; }
 
         private string _name;
 
@@ -38,6 +35,7 @@ namespace Model.buff {
 
 
         private void Start() {
+            
         }
 
     }

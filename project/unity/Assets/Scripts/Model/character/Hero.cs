@@ -4,7 +4,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-using UnityEngine.Experimental.UIElements;
+using Manager;
+
 
 using Slider = UnityEngine.UI.Slider;
 
@@ -13,12 +14,12 @@ namespace Model.character {
 
     public class Hero : Character {
 
-        public Hero() {
-            MaxHealth = 30;
-            CurrentHealth = 26;
-            initData();
-        }
 
+        Hero() {
+            initData();
+
+        }
+        
         public override int CurrentHealth {
             get { return currentHealth; }
             set {
@@ -43,6 +44,9 @@ namespace Model.character {
 
 
         void initData() {
+            MaxHealth = 30;
+            CurrentHealth = 26;
+            
             deck.Add(new IceAttack(this));
             deck.Add(new StoneSkin(this));
             deck.Add(new IceAttack(this));
@@ -50,8 +54,8 @@ namespace Model.character {
         }
 
         void Start() {
+            battleManager = GetComponentInParent<BattleManager>();
             slider = gameObject.GetComponentInChildren<Slider>();
-
             slider.value = CurrentHealth;
             slider.maxValue = MaxHealth;
         }

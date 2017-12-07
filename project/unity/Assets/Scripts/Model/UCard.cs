@@ -21,7 +21,7 @@ namespace Model {
 
         public Character character;
 
-        public delegate void PlayEffect_(Character player = null, Character target = null);
+        public delegate void PlayEffect_(BattleManager manager,Character player);
 
         public delegate bool CouldCharacterUse_(Character c);
 
@@ -80,7 +80,7 @@ namespace Model {
             rectTransform = GetComponent<RectTransform>();
         }
 
-        public void AfterPlayEffect(Character player = null, Character target = null) {
+        public void AfterPlayEffect(BattleManager manager,Character player) {
             MoveCard(CardStatus.InHands, CardStatus.InYield);
         }
 

@@ -12,14 +12,18 @@ namespace Model.damage {
 
         public int Num { get; set; }
 
-        public Damage(int num) {
+        public Character Source { get; set; }
+
+        public Damage(int num, Character source) {
             Num = num;
             Type = DamageType.Physical;
+            Source = source;
         }
 
-        public Damage(int num, DamageType type) {
+        public Damage(int num, DamageType type, Character source) {
             Num = num;
             Type = type;
+            Source = source;
         }
 
     }

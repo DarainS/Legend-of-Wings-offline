@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Manager;
+
+using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -44,6 +46,8 @@ namespace Model.character {
         }
 
         void Start() {
+            battleManager = GetComponentInParent<BattleManager>();
+
             slider = gameObject.GetComponentInChildren<Slider>();
             RectTransform = GetComponent<RectTransform>();
             slider.maxValue = MaxHealth;

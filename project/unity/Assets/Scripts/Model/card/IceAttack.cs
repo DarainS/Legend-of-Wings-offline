@@ -1,11 +1,14 @@
 ﻿using System;
 
+using Manager;
+
 using Model;
 using Model.character;
 using Model.damage;
 
 
 public class IceAttack : Card {
+
 
     public IceAttack(Character c) {
         Name = "寒冰攻击";
@@ -14,15 +17,22 @@ public class IceAttack : Card {
         firstCooldown = 1;
     }
 
-    public override void PlayEffect(Character player = null, Character target = null) {
-        Damage damage = new Damage(2, DamageType.Ice);
-        var t = character;
-        if(t as Hero) {
-            var h = (Hero) t;
-            h.TakeDamage(damage);
+    public Character ChooseTarget(BattleManager manager, Character user) {
+        if(user as Hero) {
+            return manager.Monster;
         }
-        else if(target) {
+
+        if(user as Monster) {
+            return manager.Hero;
         }
+
+        throw new Exception();
+    }
+
+    public override void PlayEffect(BattleManager manager, Character user) {
+        Damage damage = new Damage(2, DamageType.Ice, character);
+        var target = ChooseTarget(manager,user);
+        target.TakeDamage(damage);
     }
 
 }
