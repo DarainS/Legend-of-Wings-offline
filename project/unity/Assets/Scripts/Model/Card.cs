@@ -27,6 +27,10 @@ public abstract class Card {
 
     public UCard uCard;
 
+    public CardType CardType;
+
+    public CardProperty CardProperty;
+
     public CardCost Cost= new CardCost();
 
     public int FirstCooldown {
@@ -49,9 +53,7 @@ public abstract class Card {
         return target;
     }
 
-    public virtual void PlayEffect(BattleManager manager, Character user) {
-        
-    }
+    public abstract void PlayEffect(BattleManager manager, Character user);
 
     public virtual bool CouldCharacterUse(BattleManager manager,Character user) {
         if( uCard.CurrentCooldown>0) {

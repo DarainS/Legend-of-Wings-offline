@@ -24,6 +24,10 @@ namespace Model {
         public Character character;
 
         public Text CurrenCooldownText;
+        
+        public CardType CardType;
+
+        public CardProperty CardProperty;
 
         public delegate void PlayEffect_(BattleManager manager, Character player);
 
@@ -66,7 +70,6 @@ namespace Model {
 
         public string SimgleDesc { get; set; }
 
-        public int StartCooldown { get; set; }
 
         public Card Card {
             set {
@@ -77,6 +80,8 @@ namespace Model {
                 MaxCooldownTime = value.CooldownTime;
                 CurrentCooldown = value.FirstCooldown;
                 value.uCard = this;
+                CardType = value.CardType;
+                CardProperty = value.CardProperty;
 
                 PlayEffect = value.PlayEffect;
                 PlayEffect += AfterPlayEffect;

@@ -15,14 +15,29 @@
  * 冰、雷电、毒
  *
  * 卡牌系别：
- * 愤怒、决斗、阴影、
+ * 愤怒、决斗、阴影、祷告、
  * 
  */
 public enum CardType {
-
     SPELL,
     ATTACK,
     ENERGY,
-    EQUIPMENT
+    EQUIPMENT,
+    Charge,
+}
+
+public enum CardMajor {
+    
+}
+
+public enum CardProperty {
+
+    Nomal,
+    Physical,
+    Light,Dark,
+    Fire,Water,Air,Earth,
+    Ice,Electron,Poition,
+    
+    Pneuma,
 
 }

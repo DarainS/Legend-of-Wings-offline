@@ -22,8 +22,8 @@ namespace Model.character {
             get { return _health; }
             set {
                 _health = value;
-                if(slider != null && maxHealth != 0) {
-                    slider.value = _health;
+                if(healthSlider != null && maxHealth != 0) {
+                    healthSlider.value = _health;
                 }
             }
         }
@@ -32,13 +32,13 @@ namespace Model.character {
             get { return maxHealth; }
             set {
                 maxHealth = value;
-                if(slider) {
-                    slider.maxValue = maxHealth;
+                if(healthSlider) {
+                    healthSlider.maxValue = maxHealth;
                 }
             }
         }
 
-        protected Slider slider;
+        protected Slider healthSlider;
 
 
         void initData() {
@@ -55,9 +55,9 @@ namespace Model.character {
 
         void Start() {
             manager = GetComponentInParent<BattleManager>();
-            slider = gameObject.GetComponentInChildren<Slider>();
-            slider.value = Health;
-            slider.maxValue = MaxHealth;
+            healthSlider = gameObject.GetComponentInChildren<Slider>();
+            healthSlider.value = Health;
+            healthSlider.maxValue = MaxHealth;
         }
 
     }

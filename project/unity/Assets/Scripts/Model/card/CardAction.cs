@@ -8,8 +8,6 @@ using Model.damage;
 
 public class CardAction<T, R> : IComparer<CardAction<T, R>> {
 
-    public ActionType type;
-
     public int Order;
 
     public Card source;
