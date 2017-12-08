@@ -18,12 +18,12 @@ namespace Model.character {
             initData();
         }
         
-        public override int CurrentHealth {
-            get { return currentHealth; }
+        public override int Health {
+            get { return _health; }
             set {
-                currentHealth = value;
+                _health = value;
                 if(slider != null && maxHealth != 0) {
-                    slider.value = currentHealth;
+                    slider.value = _health;
                 }
             }
         }
@@ -43,7 +43,9 @@ namespace Model.character {
 
         void initData() {
             MaxHealth = 30;
-            CurrentHealth = 26;
+            Health = 26;
+            
+            
             
             deck.Add(new IceAttack(this));
             deck.Add(new StoneSkin(this));
@@ -54,7 +56,7 @@ namespace Model.character {
         void Start() {
             manager = GetComponentInParent<BattleManager>();
             slider = gameObject.GetComponentInChildren<Slider>();
-            slider.value = CurrentHealth;
+            slider.value = Health;
             slider.maxValue = MaxHealth;
         }
 

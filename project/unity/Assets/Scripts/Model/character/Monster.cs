@@ -11,16 +11,16 @@ namespace Model.character {
         private RectTransform RectTransform;
 
         Monster() {
-            CurrentHealth = 20;
+            Health = 20;
             MaxHealth = 30;
         }
         
-        public override int CurrentHealth {
-            get { return currentHealth; }
+        public override int Health {
+            get { return _health; }
             set {
-                currentHealth = value;
+                _health = value;
                 if(slider != null && maxHealth != 0) {
-                    slider.value = currentHealth;
+                    slider.value = _health;
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace Model.character {
             slider = gameObject.GetComponentInChildren<Slider>();
             RectTransform = GetComponent<RectTransform>();
             slider.maxValue = MaxHealth;
-            slider.value = CurrentHealth;
+            slider.value = Health;
             var st=slider.GetComponent<RectTransform>();
             st.position = RectTransform.position;
             initData();

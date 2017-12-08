@@ -22,21 +22,58 @@ namespace Model {
 
         protected List<CardAction<Damage, Damage>> afterDamage = new List<CardAction<Damage, Damage>>();
 
-        protected int currentHealth;
+        protected int _health;
 
         protected int maxHealth;
 
         protected List<Card> deck = new List<Card>(30);
 
+        private int _mana;
+        public int Mana {
+            get { return _mana; }
+            set { _mana = value; }
+        }
+        
+        private int _maxMana;
+        public int MaxMana {
+            get { return _maxMana; }
+            set { _maxMana = value; }
+        }
+        
+        private int _energy;
+        public int Energy {
+            get { return _energy; }
+            set { _energy = value; }
+        }
+        
+        private int _maxEnergy;
+        public int MaxEnergy {
+            get { return _maxEnergy; }
+            set { _maxEnergy = value; }
+        }
+        
+        private int _rage;
+        public int Rage {
+            get { return _rage; }
+            set { _rage = value; }
+        }
+        
+        private int _maxRage;
+        public int MaxRage {
+            get { return _maxRage; }
+            set { _maxRage = value; }
+        }
+        
+        
         public BattleManager manager;
 
         public List<Card> Deck {
             get { return deck; }
         }
 
-        public virtual int CurrentHealth {
-            get { return currentHealth; }
-            set { currentHealth = value; }
+        public virtual int Health {
+            get { return _health; }
+            set { _health = value; }
         }
 
 
@@ -57,7 +94,7 @@ namespace Model {
             beforeDamage.Sort();
             damage = beforeDamage.Aggregate(damage, (current, action) => action.playEffect(current));
 
-            CurrentHealth -= damage.Num;
+            Health -= damage.Num;
 
             foreach(var action in afterDamage) {
                 action.playEffect(damage);

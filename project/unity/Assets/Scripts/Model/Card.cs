@@ -7,6 +7,7 @@ using Manager;
 using UnityEngine;
 
 using Model;
+using Model.card;
 using Model.character;
 
 
@@ -25,6 +26,8 @@ public abstract class Card {
     protected int firstCooldown;
 
     public UCard uCard;
+
+    public CardCost Cost= new CardCost();
 
     public int FirstCooldown {
         get { return firstCooldown; }
@@ -51,7 +54,13 @@ public abstract class Card {
     }
 
     public virtual bool CouldCharacterUse(BattleManager manager,Character user) {
-        return uCard.CurrentCooldown<=0;
+        if( uCard.CurrentCooldown>0) {
+            return false;
+        }
+        if(!Cost.CouldCharacterCost(manager,user)) {
+            return false;
+        }
+        return true;
     }
 
 }
