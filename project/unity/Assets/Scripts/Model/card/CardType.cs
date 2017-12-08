@@ -42,3 +42,13 @@ public enum CardProperty {
     Pneuma,
 
 }
+public enum CardStatus {
+
+    InDeck,
+    InGrave,
+    InYield,
+    InHands,
+    Exile,
+    WaitInit,
+
+}

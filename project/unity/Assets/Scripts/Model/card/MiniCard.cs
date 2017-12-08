@@ -2,9 +2,9 @@
 
 
 namespace Model {
-
+    
     public class MiniCard : UCard {
 
     }
-
+    
 }

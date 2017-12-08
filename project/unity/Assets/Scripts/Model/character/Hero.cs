@@ -20,49 +20,8 @@ namespace Model.character {
             initData();
         }
 
-        public override int Health {
-            get { return _health; }
-            set {
-                _health = value;
-                if(healthSlider != null && maxHealth != 0) {
-                    healthSlider.value = _health;
-                }
-            }
-        }
+       
 
-        public override int MaxHealth {
-            get { return maxHealth; }
-            set {
-                maxHealth = value;
-                if(healthSlider) {
-                    healthSlider.maxValue = maxHealth;
-                }
-            }
-        }
-
-        public int Mana {
-            get { return _mana; }
-            set {
-                _mana = value;
-                if(secondarySlider!=null) {
-                    secondarySlider.value = value;
-                }
-            }
-        }
-
-        public int MaxMana {
-            get { return _maxMana; }
-            set {
-                _maxMana = value;
-                if(secondarySlider !=null ) {
-                    secondarySlider.maxValue = value;
-                }
-            }
-        }
-
-        public Slider healthSlider;
-
-        public Slider secondarySlider;
 
 
         void initData() {
@@ -73,7 +32,6 @@ namespace Model.character {
 
             deck.Add(new IceAttack(this));
             deck.Add(new StoneSkin(this));
-            deck.Add(new Meditation(this));
             deck.Add(new Meditation(this));
             deck.Add(new FireBall(this));
         }
