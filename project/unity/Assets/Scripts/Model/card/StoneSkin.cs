@@ -27,6 +27,7 @@ public class StoneSkin : Card {
         if(!user.BeforeDamage.Contains(cardAction)) {
             user.BeforeDamage.Add(cardAction);
         }
+        
     }
 
 }

@@ -9,7 +9,6 @@ namespace Manager {
     public class DeckArea : BaseCardAreaManager {
 
         private Text text;
-
        
         public override void AddCard(UCard card) {
             card.gameObject.SetActive(false);

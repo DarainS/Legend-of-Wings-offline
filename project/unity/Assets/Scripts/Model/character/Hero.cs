@@ -39,6 +39,7 @@ namespace Model.character {
         }
 
         protected Slider healthSlider;
+        protected Slider secondarySlider;
 
 
         void initData() {
