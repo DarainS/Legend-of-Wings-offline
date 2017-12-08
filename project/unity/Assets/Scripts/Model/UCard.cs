@@ -26,9 +26,11 @@ namespace Model {
         public Text CurrenCooldownText;
         
         public CardType CardType;
-
+       
         public CardProperty CardProperty;
 
+        public CardCost CardCost { get; set; }
+        
         public delegate void PlayEffect_(BattleManager manager, Character player);
 
         public delegate bool CouldCharacterUse_(BattleManager manager, Character c);
@@ -82,8 +84,10 @@ namespace Model {
                 value.uCard = this;
                 CardType = value.CardType;
                 CardProperty = value.CardProperty;
+                CardCost = value.Cost;
 
-                PlayEffect = value.PlayEffect;
+                PlayEffect = BeforePlayEffect;
+                PlayEffect += value.PlayEffect;
                 PlayEffect += AfterPlayEffect;
 
                 CouldCharacterUse = value.CouldCharacterUse;
@@ -110,6 +114,10 @@ namespace Model {
         private void Start() {
             initEventListenser();
             rectTransform = GetComponent<RectTransform>();
+        }
+        
+        public void BeforePlayEffect(BattleManager manager, Character player) {
+            CardCost.Cost(manager, player);
         }
 
         public void AfterPlayEffect(BattleManager manager, Character player) {
@@ -148,7 +156,6 @@ namespace Model {
         }
 
         private void OnClick(BaseEventData pointData) {
-            Debug.Log("Button click. EventTrigger..");
             if(character.CouldUseCard(this)) {
                 character.PlayEffect(this);
             }

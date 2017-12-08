@@ -28,37 +28,41 @@ namespace Model {
 
         protected List<Card> deck = new List<Card>(30);
 
-        private int _mana;
+        protected int _mana;
+        
         public int Mana {
             get { return _mana; }
             set { _mana = value; }
         }
         
-        private int _maxMana;
+        protected int _maxMana;
         public int MaxMana {
             get { return _maxMana; }
-            set { _maxMana = value; }
+            set {
+                _maxMana = value;
+
+            }
         }
         
-        private int _energy;
+        protected int _energy;
         public int Energy {
             get { return _energy; }
             set { _energy = value; }
         }
         
-        private int _maxEnergy;
+        protected int _maxEnergy;
         public int MaxEnergy {
             get { return _maxEnergy; }
             set { _maxEnergy = value; }
         }
         
-        private int _rage;
+        protected int _rage;
         public int Rage {
             get { return _rage; }
             set { _rage = value; }
         }
         
-        private int _maxRage;
+        protected int _maxRage;
         public int MaxRage {
             get { return _maxRage; }
             set { _maxRage = value; }
@@ -75,7 +79,6 @@ namespace Model {
             get { return _health; }
             set { _health = value; }
         }
-
 
         public virtual int MaxHealth {
             get { return maxHealth; }

@@ -1,5 +1,7 @@
 ﻿using Manager;
 
+using Model.character;
+
 
 namespace Model.card {
 
@@ -44,10 +46,14 @@ namespace Model.card {
         }
 
         public void Cost(BattleManager manager, Character user) {
-            user.Mana -= manaCost.num;
-            user.Energy -= energyCost.num;
-            user.Rage -= rageCost.num;
-            user.Health -= healthCost.num;
+            if(user is Hero) {
+                var hero = user as Hero;
+                hero.Mana -= manaCost.num;
+                hero.Energy -= energyCost.num;
+                hero.Rage -= rageCost.num;
+                hero.Health -= healthCost.num;
+            }
+           
         }
     }
 

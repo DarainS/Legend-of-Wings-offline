@@ -27,11 +27,11 @@ public abstract class Card {
 
     public UCard uCard;
 
-    public CardType CardType;
+    public CardType CardType = CardType.Base;
 
-    public CardProperty CardProperty;
+    public CardProperty CardProperty = CardProperty.Nomal;
 
-    public CardCost Cost= new CardCost();
+    public CardCost Cost = new CardCost();
 
     public int FirstCooldown {
         get { return firstCooldown; }

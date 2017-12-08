@@ -19,11 +19,12 @@
  * 
  */
 public enum CardType {
-    SPELL,
-    ATTACK,
-    ENERGY,
-    EQUIPMENT,
+    Spell,
+    Attack,
+    Energy,
+    Equipment,
     Charge,
+    Base,
 }
 
 public enum CardMajor {
