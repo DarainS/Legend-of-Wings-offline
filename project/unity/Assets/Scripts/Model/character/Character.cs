@@ -105,6 +105,7 @@ namespace Model {
         }
         
         public BattleManager manager;
+        public int armor;
 
         public List<Card> Deck {
             get { return deck; }
