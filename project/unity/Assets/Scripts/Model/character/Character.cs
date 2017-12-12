@@ -12,7 +12,6 @@ using Model.damage;
 using UnityEngine;
 using UnityEngine.UI;
 
-using Object = System.Object;
 
 
 namespace Model {
