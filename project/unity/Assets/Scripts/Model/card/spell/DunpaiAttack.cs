@@ -7,10 +7,8 @@ namespace Model.card.spell {
 
     public class DunpaiAttack : Card {
 
-        public DunpaiAttack(Character c) {
-            character = c;
+        public DunpaiAttack( ) {
 
-//            Cost = Cost.AddCost(CostType.Mana, 2);
             FirstCooldown = 3;
             CooldownTime = 5;
             CardType = CardType.Spell;

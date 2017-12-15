@@ -5,10 +5,9 @@ namespace Model.card.charge {
 
     public class Meditation : Card {
 
-        public Meditation(Character c) {
+        public Meditation( ) {
             FirstCooldown = 2;
             CooldownTime = 3;
-            character = c;
             CardType = CardType.Charge;
             CardProperty = CardProperty.Pneuma;
             Name = "冥想";

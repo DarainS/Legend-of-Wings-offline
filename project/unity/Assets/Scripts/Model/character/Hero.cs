@@ -30,10 +30,10 @@ namespace Model.character {
             MaxMana = 20;
             Mana = 14;
 
-            deck.Add(new IceAttack(this));
-            deck.Add(new StoneSkin(this));
-            deck.Add(new Meditation(this));
-            deck.Add(new FireBall(this));
+            deck.Add(new IceAttack());
+            deck.Add(new StoneSkin());
+            deck.Add(new Meditation());
+            deck.Add(new FireBall());
         }
 
         void Start() {

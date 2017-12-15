@@ -7,8 +7,7 @@ namespace Model.card.mana {
 
     public class FireBall : Card{
 
-        public FireBall(Character c) {
-            character = c;
+        public FireBall( ) {
             Cost = Cost.AddCost(CostType.Mana, 4);
             FirstCooldown = 3;
             CooldownTime = 5;

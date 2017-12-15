@@ -16,10 +16,10 @@ namespace Model.character {
         }
 
         void initData() {
-            deck.Add(new IceAttack(this));
-            deck.Add(new StoneSkin(this));
-            deck.Add(new IceAttack(this));
-            deck.Add(new IceAttack(this));
+            deck.Add(new IceAttack());
+            deck.Add(new StoneSkin());
+            deck.Add(new IceAttack());
+            deck.Add(new IceAttack());
         }
 
         void Start() {
