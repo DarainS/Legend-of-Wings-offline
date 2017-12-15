@@ -10,10 +10,15 @@ namespace MapCard {
 
         protected string _name;
 
-        private void Start() {
-            _image = GetComponent<Image>();
-        }
+        protected Text nameText;
 
+        private void Start() {
+            _image = GetComponentInChildren<Image>();
+            nameText = GetComponentInChildren<Text>();
+        }
+        
+        
+        
     }
 
 }

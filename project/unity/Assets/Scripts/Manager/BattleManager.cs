@@ -136,10 +136,11 @@ namespace Manager {
             
             deleteAllCardsCooldown();
             GoTurnsOn();
+        }
+
+        public void OnMonsterTurnBegin() {
             
         }
-        
-        
 
     }
 

@@ -26,7 +26,7 @@ namespace MapCard {
         }
 
         private void initUI() {
-            
+            nameText.text = _name;
         }
 
     }
