@@ -20,7 +20,7 @@ namespace Model.character {
             initData();
         }
 
-        void initData() {
+        private void initData() {
             MaxHealth = 30;
             Health = 26;
             MaxMana = 20;
@@ -32,7 +32,7 @@ namespace Model.character {
             deck.Add(new FireBall());
         }
 
-        void Start() {
+        private void Start() {
             manager = GetComponentInParent<BattleManager>();
             healthSlider.value = Health;
             healthSlider.maxValue = MaxHealth;

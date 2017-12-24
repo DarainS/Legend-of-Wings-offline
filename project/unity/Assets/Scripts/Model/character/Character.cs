@@ -23,17 +23,17 @@ namespace Model {
 
         public List<CardAction<Damage, Damage>> afterDamage = new List<CardAction<Damage, Damage>>();
 
-        protected Hashtable _eventMap= new Hashtable(100);
+        private readonly Hashtable _eventMap= new Hashtable(100);
 
-        protected int _health;
+        private int _health;
 
-        protected int maxHealth;
+        private int maxHealth;
 
-        protected List<Card> deck = new List<Card>(30);
+        protected readonly List<Card> deck = new List<Card>(30);
 
-        protected int _mana;
+        private int _mana;
 
-        protected int _maxMana;
+        private int _maxMana;
         
         public Slider healthSlider;
 
@@ -78,8 +78,8 @@ namespace Model {
                 }
             }
         }
-        
-        protected int _energy;
+
+        private int _energy;
         
         public int Energy {
             get { return _energy; }
