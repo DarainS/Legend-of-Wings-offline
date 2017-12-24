@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿using Manager;
+
+using Model.character;
+
+using UnityEngine;
 using UnityEngine.UI;
 
 
@@ -12,13 +16,20 @@ namespace MapCard {
 
         protected Text nameText;
 
+        public DungeonManager DungeonManager;
+
         private void Start() {
             _image = GetComponentInChildren<Image>();
             nameText = GetComponentInChildren<Text>();
+            Button button = GetComponent<Button>();
+            button.onClick.AddListener(OnClick);
         }
-        
-        
-        
+
+        protected virtual void OnClick() {
+            var mon = new Monster();
+            DungeonManager.GenerateBattle(DungeonManager.Hero, mon);
+        }
+
     }
 
 }

@@ -1,9 +1,12 @@
-﻿<Properties StartupConfiguration="{5C37612B-AF80-25DB-739D-B40D9EBFE347}|单元测试">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Model/card/charge/Meditation.cs">
+﻿<Properties StartupConfiguration="{C3DA89E1-70C6-7D6C-993E-C8F831D35880}|单元测试">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Map/MapCard/MapCard.cs">
     <Files>
       <File FileName="Assets/Scripts/Model/character/Magician.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Model/card/CardType.cs" Line="51" Column="11" />
       <File FileName="Assets/Scripts/Model/card/charge/Meditation.cs" Line="6" Column="18" />
+      <File FileName="Assets/Scripts/Map/MapCard/MapCard.cs" Line="24" Column="2" />
+      <File FileName="Assets/Scripts/Map/MapCard/BaseMonsterMapCard.cs" Line="6" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

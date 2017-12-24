@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Common;
+
 using Model;
 using Model.card;
 using Model.character;
 
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -32,6 +35,8 @@ namespace Manager {
         public Hero Hero { get; set; }
 
         public Monster Monster;
+
+       
 
         private void initHeroDeckCards() {
             foreach(var card in Hero.Deck) {
@@ -60,13 +65,18 @@ namespace Manager {
         }
 
         public void Start() {
+            Config.BattleManager = this;
             initCardAreas();
-           
-
             initHeroDeckCards();
+            initData();
             beginBattle();
         }
 
+        private void initData() {
+            Hero = Config.Hero;
+            Monster = Config.Monster;
+        }
+        
         private void beginBattle() {
             DrawCard(Hero, 2);
         }

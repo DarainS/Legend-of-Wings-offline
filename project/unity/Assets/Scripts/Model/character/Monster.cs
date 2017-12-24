@@ -10,7 +10,7 @@ namespace Model.character {
 
         private RectTransform RectTransform;
 
-        Monster() {
+        public Monster() {
             Health = 20;
             MaxHealth = 30;
         }
