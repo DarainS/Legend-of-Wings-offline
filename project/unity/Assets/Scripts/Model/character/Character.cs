@@ -7,6 +7,7 @@ using System.Linq;
 
 using Manager;
 
+using Model.character;
 using Model.damage;
 
 using UnityEngine;
@@ -21,6 +22,8 @@ namespace Model {
         public List<CardAction<Damage, Damage>> beforeDamage = new List<CardAction<Damage, Damage>>();
 
         public List<CardAction<Damage, Damage>> afterDamage = new List<CardAction<Damage, Damage>>();
+
+        protected Hashtable _eventMap= new Hashtable(100);
 
         protected int _health;
 
@@ -137,6 +140,11 @@ namespace Model {
         // Use this for initialization
         void Start() {
             manager = GetComponentInParent<BattleManager>();
+            var names = Enum.GetNames(typeof(CharacterEventType));
+            foreach(var name in names) {
+                _eventMap.Add(name,new List<CardAction<System.Object,System.Object>>());
+            }
+            
         }
 
         // Update is called once per frame

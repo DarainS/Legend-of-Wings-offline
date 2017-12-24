@@ -15,12 +15,10 @@ using Slider = UnityEngine.UI.Slider;
 namespace Model.character {
 
     public class Hero : Character {
+
         public Hero() {
             initData();
         }
-
-      
-
 
         void initData() {
             MaxHealth = 30;
