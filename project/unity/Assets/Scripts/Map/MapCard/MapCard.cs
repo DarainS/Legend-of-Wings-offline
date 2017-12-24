@@ -21,7 +21,7 @@ namespace MapCard {
         private void Start() {
             _image = GetComponentInChildren<Image>();
             nameText = GetComponentInChildren<Text>();
-            Button button = GetComponent<Button>();
+            var button = GetComponent<Button>();
             button.onClick.AddListener(OnClick);
         }
 

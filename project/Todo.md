@@ -1,12 +1,14 @@
 # What To Do
 
+| 计划名称    | 预估代码量    | 备注             | 优先度  |
+| ------- | -------- | -------------- | ---- |
+| 20张法师卡牌 | 20*50=1k |                | 0    |
+| 怪物AI    | 1k       | 基本的卡牌AI就足够了    | 2    |
+| 地下城模块   | 1k       | 选择MapCard，进入战斗 | 4    |
+| 战斗模块    | 0.5k     | 战斗结算           | 3    |
+| 地下城生成   | 1k       | 生成奖励、生成地图      | 3    |
+|         |          |                |      |
+|         |          |                |      |
+|         |          |                |      |
+|         |          |                |      |
 
-Basic Game View
-    to 11-25
-- card
-
-Hero powerbility calculator
-
-Monster Bility Calculator
-
-Cards
