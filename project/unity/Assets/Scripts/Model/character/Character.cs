@@ -142,11 +142,23 @@ namespace Model {
             manager = GetComponentInParent<BattleManager>();
             var names = Enum.GetNames(typeof(CharacterEventType));
             foreach(var name in names) {
-                _eventMap.Add(name,new List<CardAction<System.Object,System.Object>>());
+                CharacterEventType p;
+                CharacterEventType.TryParse(name, true, out p);
+                _eventMap.Add(p,new List<CardAction<System.Object,System.Object>>());
             }
             
         }
 
+        public List<CardAction<System.Object, System.Object>> GetEventList(CharacterEventType eventType) {
+            return (List<CardAction<object, object>>) _eventMap[eventType];
+            
+         
+        }
+
+        public void AddEvent(CharacterEventType eventType, CardAction<System.Object, System.Object> action) {
+            ((List<CardAction<object, object>>) _eventMap[eventType]).Add(action);
+        }
+        
         // Update is called once per frame
         void Update() {
         }
