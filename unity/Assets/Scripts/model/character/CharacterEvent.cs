@@ -13,9 +13,10 @@ namespace model.character {
     public class CharacterEvent {
 
         public static void EventList() {
-            var list = new List<CharacterEventType>();
-            list.Add(CharacterEventType.AfterDamage);
-            list.Add(CharacterEventType.BeforeDamage);
+            var list = new List<CharacterEventType> {
+                CharacterEventType.AfterDamage,
+                CharacterEventType.BeforeDamage
+            };
         }
 
     }
