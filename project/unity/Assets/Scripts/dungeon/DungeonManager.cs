@@ -1,34 +1,38 @@
-﻿using Common;
+﻿using common.config;
+
+using model.character;
 
 using MapCard;
-
-using Model.character;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class DungeonManager : MonoBehaviour {
+namespace dungeon {
 
-    public CardArea CardArea;
+    public class DungeonManager : MonoBehaviour {
 
-    public Hero Hero;
+        public CardArea CardArea;
 
-    private void newGameDungeon() {
-    }
+        public Hero Hero;
 
-    public void GenerateBattle(Hero hero, Monster monster) {
-        Config.Hero = hero;
-        Config.Monster = monster;
-        SceneManager.LoadScene("BattleScene", LoadSceneMode.Single);
-    }
-
-    private void Start() {
-        Hero = Config.Hero;
-        Config.DungeonManager = this;
-        if(!Config.isGameStarted) {
-            newGameDungeon();
+        private void newGameDungeon() {
         }
+
+        public void GenerateBattle(Hero hero, Monster monster) {
+            Config.Hero = hero;
+            Config.Monster = monster;
+            SceneManager.LoadScene("BattleScene", LoadSceneMode.Single);
+        }
+
+        private void Start() {
+            Hero = Config.Hero;
+            Config.DungeonManager = this;
+            if(!Config.isGameStarted) {
+                newGameDungeon();
+            }
+        }
+
     }
 
 }

@@ -1,6 +1,7 @@
-﻿using Manager;
+﻿
+using dungeon;
 
-using Model.character;
+using model.character;
 
 using UnityEngine;
 using UnityEngine.UI;

@@ -1,9 +1,9 @@
-﻿using Model;
+﻿using model.card;
 
-using UnityEngine;
+using Model;
 
 
-namespace Manager {
+namespace battle.deckarea {
 
     public class GraveArea : BaseCardAreaManager {
 

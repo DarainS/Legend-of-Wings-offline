@@ -1,9 +1,11 @@
-﻿using Model;
+﻿using model.card;
+
+using Model;
 
 using UnityEngine;
 
 
-namespace Manager {
+namespace battle.deckarea {
 
     public class YieldArea : BaseCardAreaManager {
 

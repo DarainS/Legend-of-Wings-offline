@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-using Common;
+using battle.deckarea;
 
-using Model;
-using Model.card;
-using Model.character;
+using common.config;
+
+using model.card;
+using model.character;
+
 
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-namespace Manager {
+namespace battle {
 
     public class BattleManager : MonoBehaviour {
 

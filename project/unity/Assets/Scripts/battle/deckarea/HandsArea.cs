@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using model.card;
 
 using Model;
 
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
 
 
-namespace Manager {
+namespace battle.deckarea {
 
     public class HandsArea : BaseCardAreaManager {
 

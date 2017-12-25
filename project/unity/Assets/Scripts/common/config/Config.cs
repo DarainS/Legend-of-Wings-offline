@@ -1,9 +1,12 @@
-﻿using Manager;
+﻿using battle;
 
-using Model.character;
+using dungeon;
+
+using model.character;
 
 
-namespace Common {
+
+namespace common.config {
 
     public class Config {
 

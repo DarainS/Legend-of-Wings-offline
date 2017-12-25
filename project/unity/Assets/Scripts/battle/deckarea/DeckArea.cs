@@ -1,10 +1,11 @@
-﻿using Model;
+﻿using model.card;
 
-using UnityEngine;
+using Model;
+
 using UnityEngine.UI;
 
 
-namespace Manager {
+namespace battle.deckarea {
 
     public class DeckArea : BaseCardAreaManager {
 
