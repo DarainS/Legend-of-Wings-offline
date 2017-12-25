@@ -1,9 +1,7 @@
-﻿
-
-namespace model.character {
+﻿namespace model.character {
 
     public class Magician : Hero {
-        
+
     }
 
 }

@@ -14,8 +14,6 @@ namespace common {
         public int MaxMana { get; set; }
 
         public readonly List<Card> deck = new List<Card>(50);
-        
-        
 
     }
 

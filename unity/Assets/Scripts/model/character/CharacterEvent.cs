@@ -7,10 +7,10 @@ namespace model.character {
 
         BeforeDamage,
         AfterDamage
-        
+
     }
 
-    public class  CharacterEvent {
+    public class CharacterEvent {
 
         public static void EventList() {
             var list = new List<CharacterEventType>();

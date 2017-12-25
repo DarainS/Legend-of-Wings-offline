@@ -8,7 +8,7 @@ namespace model.card.@base {
 
     public class StoneSkin : Card {
 
-        public StoneSkin( ) {
+        public StoneSkin() {
             Name = "石化皮肤";
             SimgleDesc = "直到下回合开始，获得2点伤害减免";
             cooldownTime = 3;
@@ -25,7 +25,6 @@ namespace model.card.@base {
             if(!user.BeforeDamage.Contains(cardAction)) {
                 user.BeforeDamage.Add(cardAction);
             }
-        
         }
 
     }

@@ -36,29 +36,29 @@ namespace model.card {
             get { return cooldownTime; }
             set { cooldownTime = value; }
         }
-    
+
         public virtual Character ChooseTarget(BattleManager manager, Character user) {
             if(user as Hero) {
-                target=manager.Monster;
+                target = manager.Monster;
             }
             if(user as Monster) {
-                target= manager.Hero;
+                target = manager.Hero;
             }
             return target;
         }
 
         public abstract void PlayEffect(BattleManager manager, Character user);
 
-        public virtual bool CouldCharacterUse(BattleManager manager,Character user) {
-            if( uCard.CurrentCooldown>0) {
+        public virtual bool CouldCharacterUse(BattleManager manager, Character user) {
+            if(uCard.CurrentCooldown > 0) {
                 return false;
             }
-            if(!Cost.CouldCharacterCost(manager,user)) {
+            if(!Cost.CouldCharacterCost(manager, user)) {
                 return false;
             }
+
             return true;
         }
-    
 
     }
 

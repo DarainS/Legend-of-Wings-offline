@@ -5,7 +5,6 @@ using dungeon;
 using model.character;
 
 
-
 namespace common.config {
 
     public static class Config {

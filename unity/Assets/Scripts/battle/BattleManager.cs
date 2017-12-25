@@ -7,7 +7,6 @@ using common.config;
 using model.card;
 using model.character;
 
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,14 +27,13 @@ namespace battle {
 
         public Button EndHeroTurnBtn;
 
-        private List<UCard> allCards= new List<UCard>();
+        private List<UCard> allCards = new List<UCard>();
 
 
         public Hero Hero { get; set; }
 
         public Monster Monster;
 
-       
 
         private void initHeroDeckCards() {
             foreach(var card in Hero.Deck) {
@@ -45,6 +43,7 @@ namespace battle {
                 deckArea.AddCard(temp);
                 allCards.Add(temp);
             }
+
             deckArea.cards.Sort();
         }
 
@@ -75,13 +74,13 @@ namespace battle {
             Hero = Config.Hero;
             Monster = Config.Monster;
         }
-        
+
         private void beginBattle() {
             DrawCard(Hero, 2);
         }
 
         private void GoTurnsOn() {
-            DrawCard(Hero,1);
+            DrawCard(Hero, 1);
         }
 
         public void Shuffle() {
@@ -90,44 +89,46 @@ namespace battle {
                 graveArea.RemoveCard(temp);
                 deckArea.AddCard(temp);
             }
+
             // TODO 随机洗牌算法
-        }        
-        
-        public void DrawCard(Character c,int n) {
-            if( c is Hero) {
+        }
+
+        public void DrawCard(Character c, int n) {
+            if(c is Hero) {
                 for(int i = 0; i < n; i++) {
-                    if(deckArea.cards.Count<1) {
+                    if(deckArea.cards.Count < 1) {
                         Shuffle();
                     }
-                    if(deckArea.cards.Count==0) {
+                    if(deckArea.cards.Count == 0) {
                         return;
                     }
+
                     var temp = deckArea.cards[0];
                     deckArea.RemoveCard(temp);
                     handsArea.AddCard(temp);
                 }
             }
         }
-        
+
         private void initCardAreas() {
             handsArea = GetComponentInChildren<HandsArea>();
             handsArea.battleManager = this;
             yieldArea = GetComponentInChildren<YieldArea>();
             deckArea = GetComponentInChildren<DeckArea>();
             graveArea = GetComponentInChildren<GraveArea>();
-            
+
             Hero = GetComponentInChildren<Hero>();
             Monster = GetComponentInChildren<Monster>();
             ucard = GetComponentInChildren<UCard>();
             ucard.gameObject.SetActive(false);
-            
         }
 
         private void deleteAllCardsCooldown() {
             foreach(var card in allCards) {
-                if(card.CurrentCooldown==0) {
+                if(card.CurrentCooldown == 0) {
                     continue;
                 }
+
                 card.CurrentCooldown -= 1;
             }
         }
@@ -142,13 +143,12 @@ namespace battle {
             }
 
             graveArea.ResetCardsCooldown();
-            
+
             deleteAllCardsCooldown();
             GoTurnsOn();
         }
 
         public void OnMonsterTurnBegin() {
-            
         }
 
     }

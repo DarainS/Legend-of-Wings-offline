@@ -1,6 +1,5 @@
 ﻿using model.character;
 
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +8,8 @@ namespace model.buff {
 
     public enum BuffType {
 
-
     }
-    
+
     public class Buff : MonoBehaviour {
 
         public Character Source { get; set; }
@@ -48,7 +46,6 @@ namespace model.buff {
 
 
         private void Start() {
-            
         }
 
     }

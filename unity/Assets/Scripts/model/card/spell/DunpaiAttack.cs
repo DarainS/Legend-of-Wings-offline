@@ -4,13 +4,11 @@ using model.character;
 using model.damage;
 
 
-
 namespace model.card.spell {
 
     public class DunpaiAttack : Card {
 
-        public DunpaiAttack( ) {
-
+        public DunpaiAttack() {
             FirstCooldown = 3;
             CooldownTime = 5;
             CardType = CardType.Spell;

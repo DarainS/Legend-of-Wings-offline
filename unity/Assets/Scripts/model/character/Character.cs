@@ -20,7 +20,7 @@ namespace model.character {
 
         public List<CardAction<Damage, Damage>> afterDamage = new List<CardAction<Damage, Damage>>();
 
-        private readonly Hashtable _eventMap= new Hashtable(100);
+        private readonly Hashtable _eventMap = new Hashtable(100);
 
         private int _health;
 
@@ -31,11 +31,11 @@ namespace model.character {
         private int _mana;
 
         private int _maxMana;
-        
+
         public Slider healthSlider;
 
         public Slider secondarySlider;
-        
+
         public int Health {
             get { return _health; }
             set {
@@ -60,7 +60,7 @@ namespace model.character {
             get { return _mana; }
             set {
                 _mana = value;
-                if(secondarySlider!=null) {
+                if(secondarySlider != null) {
                     secondarySlider.value = value;
                 }
             }
@@ -70,39 +70,40 @@ namespace model.character {
             get { return _maxMana; }
             set {
                 _maxMana = value;
-                if(secondarySlider !=null ) {
+                if(secondarySlider != null) {
                     secondarySlider.maxValue = value;
                 }
             }
         }
 
         private int _energy;
-        
+
         public int Energy {
             get { return _energy; }
             set { _energy = value; }
         }
-        
+
         protected int _maxEnergy;
-        
+
         public int MaxEnergy {
             get { return _maxEnergy; }
             set { _maxEnergy = value; }
         }
-        
+
         protected int _rage;
-        
+
         public int Rage {
             get { return _rage; }
             set { _rage = value; }
         }
-        
+
         protected int _maxRage;
+
         public int MaxRage {
             get { return _maxRage; }
             set { _maxRage = value; }
         }
-        
+
         public BattleManager manager;
         public int armor;
 
@@ -127,11 +128,11 @@ namespace model.character {
         }
 
         public void PlayEffect(UCard ucard) {
-            ucard.PlayEffect(manager,this);
+            ucard.PlayEffect(manager, this);
         }
 
         public bool CouldUseCard(UCard card) {
-            return card.CouldCharacterUse(manager,this);
+            return card.CouldCharacterUse(manager, this);
         }
 
         // Use this for initialization
@@ -141,21 +142,18 @@ namespace model.character {
             foreach(var name in names) {
                 CharacterEventType p;
                 CharacterEventType.TryParse(name, true, out p);
-                _eventMap.Add(p,new List<CardAction<System.Object,System.Object>>());
+                _eventMap.Add(p, new List<CardAction<System.Object, System.Object>>());
             }
-            
         }
 
         public List<CardAction<System.Object, System.Object>> GetEventList(CharacterEventType eventType) {
             return (List<CardAction<object, object>>) _eventMap[eventType];
-            
-         
         }
 
         public void AddEvent(CharacterEventType eventType, CardAction<System.Object, System.Object> action) {
             ((List<CardAction<object, object>>) _eventMap[eventType]).Add(action);
         }
-        
+
         // Update is called once per frame
         void Update() {
         }

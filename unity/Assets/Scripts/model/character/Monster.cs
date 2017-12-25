@@ -33,6 +33,7 @@ namespace model.character {
 
             initData();
         }
+
     }
 
 }

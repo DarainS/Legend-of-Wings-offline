@@ -24,13 +24,13 @@ namespace model.card {
         public Character character;
 
         public Text CurrenCooldownText;
-        
+
         public CardType CardType;
-       
+
         public CardProperty CardProperty;
 
         public CardCost CardCost { get; set; }
-        
+
         public delegate void PlayEffect_(BattleManager manager, Character player);
 
         public delegate bool CouldCharacterUse_(BattleManager manager, Character c);
@@ -108,6 +108,7 @@ namespace model.card {
                 CurrenCooldownText.text = "";
                 return;
             }
+
             CurrenCooldownText.text = "" + CurrentCooldown;
         }
 
@@ -115,7 +116,7 @@ namespace model.card {
             initEventListenser();
             rectTransform = GetComponent<RectTransform>();
         }
-        
+
         public void BeforePlayEffect(BattleManager manager, Character player) {
             CardCost.Cost(manager, player);
         }
@@ -188,7 +189,7 @@ namespace model.card {
             if(CurrentCooldown < other.CurrentCooldown) {
                 return 1;
             }
-            
+
             return 0;
         }
 

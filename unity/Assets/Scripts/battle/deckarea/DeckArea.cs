@@ -8,7 +8,7 @@ namespace battle.deckarea {
     public class DeckArea : BaseCardAreaManager {
 
         private Text text;
-       
+
         public override void AddCard(UCard card) {
             card.gameObject.SetActive(false);
             card.transform.SetParent(transform);

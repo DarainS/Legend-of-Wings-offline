@@ -18,7 +18,7 @@ namespace model.card.attack {
 
         public override void PlayEffect(BattleManager manager, Character user) {
             Damage damage = new Damage(2, DamageType.Physical, user);
-            var target = ChooseTarget(manager,user);
+            var target = ChooseTarget(manager, user);
             target.TakeDamage(damage);
         }
 

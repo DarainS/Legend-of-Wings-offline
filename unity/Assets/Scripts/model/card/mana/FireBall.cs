@@ -7,9 +7,9 @@ using model.damage;
 
 namespace model.card.mana {
 
-    public class FireBall : Card{
+    public class FireBall : Card {
 
-        public FireBall( ) {
+        public FireBall() {
             Cost = Cost.AddCost(CostType.Mana, 4);
             FirstCooldown = 3;
             CooldownTime = 5;
@@ -21,7 +21,7 @@ namespace model.card.mana {
 
         public override void PlayEffect(BattleManager manager, Character user) {
             var target = ChooseTarget(manager, user);
-            var d = new Damage( 8, DamageType.Fire, user);
+            var d = new Damage(8, DamageType.Fire, user);
             target.TakeDamage(d);
         }
 

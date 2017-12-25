@@ -7,7 +7,7 @@ namespace model.card.charge {
 
     public class Meditation : Card {
 
-        public Meditation( ) {
+        public Meditation() {
             FirstCooldown = 2;
             CooldownTime = 3;
             CardType = CardType.Charge;

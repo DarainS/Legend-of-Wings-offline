@@ -37,13 +37,13 @@ namespace battle.deckarea {
 
         public override void ChangeAreaView() {
             changeCardsPosition();
-            
         }
 
         public void RemoveAllCard() {
             cards.Clear();
             ChangeAreaView();
         }
+
     }
 
 }

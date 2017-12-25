@@ -3,7 +3,7 @@
     public enum DamageType {
 
         Physical,
-        
+
         Magic,
         Fire,
         Water,
@@ -18,7 +18,7 @@
 
         Light,
         Dark,
-        
+
         Real,
 
     }

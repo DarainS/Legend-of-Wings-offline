@@ -1,6 +1,5 @@
 ﻿using model.card;
 
-
 using UnityEngine;
 
 
@@ -28,11 +27,13 @@ namespace battle.deckarea {
                         cards.Insert(i + 1, card);
                         break;
                     }
-                    if(i==0) {
+
+                    if(i == 0) {
                         cards.Insert(0, card);
                     }
                 }
             }
+
             ChangeAreaView();
         }
 

@@ -21,29 +21,38 @@
 namespace model.card {
 
     public enum CardType {
+
         Spell,
         Attack,
         Energy,
         Equipment,
         Charge,
         Base,
+
     }
 
     public enum CardMajor {
-    
+
     }
 
     public enum CardProperty {
 
         Nomal,
         Physical,
-        Light,Dark,
-        Fire,Water,Air,Earth,
-        Ice,Electron,Poition,
-    
+        Light,
+        Dark,
+        Fire,
+        Water,
+        Air,
+        Earth,
+        Ice,
+        Electron,
+        Poition,
+
         Pneuma,
 
     }
+
     public enum CardStatus {
 
         InDeck,

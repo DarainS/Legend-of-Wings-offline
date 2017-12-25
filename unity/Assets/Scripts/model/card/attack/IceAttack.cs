@@ -7,7 +7,7 @@ using model.damage;
 namespace model.card.attack {
 
     public class IceAttack : Card {
-    
+
         public IceAttack() {
             Cost.AddCost(CostType.Mana, 1);
             firstCooldown = 1;
@@ -19,7 +19,7 @@ namespace model.card.attack {
 
         public override void PlayEffect(BattleManager manager, Character user) {
             Damage damage = new Damage(2, DamageType.Ice, character);
-            var target = ChooseTarget(manager,user);
+            var target = ChooseTarget(manager, user);
             target.TakeDamage(damage);
         }
 
