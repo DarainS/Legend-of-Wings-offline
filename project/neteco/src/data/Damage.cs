@@ -1,5 +1,0 @@
-class Damage{
-    public Damage(){
-
-    }
-}

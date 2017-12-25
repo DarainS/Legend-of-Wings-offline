@@ -1,7 +1,0 @@
-class MainManager{
-
-    constructor(){
-
-    }
-
-}
