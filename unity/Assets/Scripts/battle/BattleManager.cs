@@ -149,8 +149,17 @@ namespace battle {
         }
 
         public void OnMonsterTurnBegin() {
+            
         }
 
+        public void PlayerBeatMonster(Monster monster) {
+            Hero.Gold += 10;
+            Hero.Health += 10;
+            Hero.MaxHealth += 2;
+        }
+
+        
+        
     }
 
 }

@@ -9,7 +9,9 @@ using model.card.mana;
 namespace model.character {
 
     public class Hero : Character {
-
+        
+        public int Gold { get; set; }
+        
         public Hero() {
             initData();
         }

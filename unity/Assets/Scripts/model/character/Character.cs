@@ -16,15 +16,15 @@ namespace model.character {
 
     public class Character : MonoBehaviour {
 
-        public List<CardAction<Damage, Damage>> beforeDamage = new List<CardAction<Damage, Damage>>();
+        public readonly List<CardAction<Damage, Damage>> beforeDamage = new List<CardAction<Damage, Damage>>();
 
-        public List<CardAction<Damage, Damage>> afterDamage = new List<CardAction<Damage, Damage>>();
+        public readonly List<CardAction<Damage, Damage>> afterDamage = new List<CardAction<Damage, Damage>>();
 
         private readonly Hashtable _eventMap = new Hashtable(100);
 
         private int _health;
 
-        private int maxHealth;
+        private int _maxHealth;
 
         protected readonly List<Card> deck = new List<Card>(30);
 
@@ -39,19 +39,30 @@ namespace model.character {
         public int Health {
             get { return _health; }
             set {
+                if(value<=0) {
+                    value = 0;
+                    OnDeath();
+                }
+                if(value> MaxHealth) {
+                    value = MaxHealth;
+                }
                 _health = value;
-                if(healthSlider != null && maxHealth != 0) {
+                if(healthSlider != null && _maxHealth != 0) {
                     healthSlider.value = _health;
                 }
             }
         }
 
+        protected virtual void OnDeath() {
+            
+        }
+
         public int MaxHealth {
-            get { return maxHealth; }
+            get { return _maxHealth; }
             set {
-                maxHealth = value;
+                _maxHealth = value;
                 if(healthSlider) {
-                    healthSlider.maxValue = maxHealth;
+                    healthSlider.maxValue = _maxHealth;
                 }
             }
         }
@@ -105,6 +116,7 @@ namespace model.character {
         }
 
         public BattleManager manager;
+        
         public int armor;
 
         public List<Card> Deck {
@@ -121,7 +133,7 @@ namespace model.character {
             damage = beforeDamage.Aggregate(damage, (current, action) => action.playEffect(current));
 
             Health -= damage.Num;
-
+            
             foreach(var action in afterDamage) {
                 action.playEffect(damage);
             }

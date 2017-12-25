@@ -1,5 +1,7 @@
 ﻿using battle;
 
+using common.config;
+
 using model.card.attack;
 using model.card.@base;
 using model.character;
@@ -13,6 +15,7 @@ namespace model.character {
     public class Monster : Character {
 
         private RectTransform RectTransform;
+
 
         public Monster() {
             Health = 20;
@@ -28,10 +31,12 @@ namespace model.character {
 
         private void Start() {
             manager = GetComponentInParent<BattleManager>();
-
             RectTransform = GetComponent<RectTransform>();
-
             initData();
+        }
+
+        protected override void OnDeath() {
+            Config.BattleManager.PlayerBeatMonster(this);
         }
 
     }
