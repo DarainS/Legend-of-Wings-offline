@@ -1,7 +1,4 @@
-﻿using model.character;
-
-using UnityEngine;
-
+﻿
 
 namespace model.character {
 

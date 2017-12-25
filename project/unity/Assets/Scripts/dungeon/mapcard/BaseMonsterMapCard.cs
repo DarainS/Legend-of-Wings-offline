@@ -1,9 +1,6 @@
-﻿using UnityEngine;
+﻿namespace dungeon.mapcard {
 
-
-namespace MapCard {
-
-    public class BaseMonsterMapCard : MapCard {
+    public class BaseMonsterMapCard : dungeon.mapcard.MapCard {
 
         private void Start() {
             

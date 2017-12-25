@@ -1,7 +1,5 @@
 ﻿using model.card;
 
-using Model;
-
 using UnityEngine;
 
 

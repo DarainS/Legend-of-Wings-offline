@@ -1,13 +1,10 @@
-﻿
-using dungeon;
-
-using model.character;
+﻿using model.character;
 
 using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace MapCard {
+namespace dungeon.mapcard {
 
     public class MapCard : MonoBehaviour {
 

@@ -1,8 +1,8 @@
 ﻿using common.config;
 
-using model.character;
+using dungeon.mapcard;
 
-using MapCard;
+using model.character;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,7 +28,7 @@ namespace dungeon {
         private void Start() {
             Hero = Config.Hero;
             Config.DungeonManager = this;
-            if(!Config.isGameStarted) {
+            if(!Config.IsGameStarted) {
                 newGameDungeon();
             }
         }

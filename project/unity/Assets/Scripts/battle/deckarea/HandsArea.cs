@@ -1,6 +1,5 @@
 ﻿using model.card;
 
-using Model;
 
 using UnityEngine;
 
@@ -13,7 +12,7 @@ namespace battle.deckarea {
 
         public RectTransform rectTransform;
 
-        void Awake() {
+        private void Awake() {
             rectTransform = GetComponent<RectTransform>();
         }
 
@@ -24,7 +23,7 @@ namespace battle.deckarea {
                 cards.Add(card);
             }
             else {
-                for(int i = cards.Count - 1; i >= 0; i--) {
+                for(var i = cards.Count - 1; i >= 0; i--) {
                     if(card.CurrentCooldown <= cards[i].CurrentCooldown) {
                         cards.Insert(i + 1, card);
                         break;

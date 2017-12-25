@@ -3,10 +3,8 @@
 using model.card;
 using model.card.attack;
 
-using UnityEngine;
 
-
-namespace MapCard {
+namespace dungeon.mapcard {
 
     public class PipiqiuMonsterCard : BaseMonsterMapCard {
 

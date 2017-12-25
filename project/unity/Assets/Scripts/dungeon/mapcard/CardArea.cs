@@ -3,7 +3,7 @@
 using UnityEngine;
 
 
-namespace MapCard {
+namespace dungeon.mapcard {
 
     public class CardArea : MonoBehaviour {
 

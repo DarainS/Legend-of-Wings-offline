@@ -19,14 +19,14 @@ namespace model.character {
             MaxHealth = 30;
         }
 
-        void initData() {
+        private void initData() {
             deck.Add(new IceAttack());
             deck.Add(new StoneSkin());
             deck.Add(new IceAttack());
             deck.Add(new IceAttack());
         }
 
-        void Start() {
+        private void Start() {
             manager = GetComponentInParent<BattleManager>();
 
             RectTransform = GetComponent<RectTransform>();

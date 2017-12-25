@@ -135,7 +135,7 @@ namespace model.character {
         }
 
         // Use this for initialization
-        void Start() {
+        private void Start() {
             manager = GetComponentInParent<BattleManager>();
             var names = Enum.GetNames(typeof(CharacterEventType));
             foreach(var name in names) {
