@@ -1,13 +1,17 @@
-## battle
-战斗
+## manager
+- battle
+- dungeon
+
 
 ## common
 - config
-- model
+- util
+
+## model
     - card
     - buff
     - character
     - damage
-## dungeon
-- map
-- grow up
+
+
+## data
