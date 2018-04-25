@@ -49,6 +49,10 @@ namespace model.card {
 
         public abstract void PlayEffect(BattleManager manager, Character user);
 
+        public virtual void PlayEffect(BattleManager manager, Character user, Character target) {
+            
+        }
+
         public virtual bool CouldCharacterUse(BattleManager manager, Character user) {
             if(uCard.CurrentCooldown > 0) {
                 return false;
