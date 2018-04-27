@@ -13,7 +13,7 @@ namespace model.card.charge {
             CardProperty = CardProperty.Pneuma;
             Name = "冥想";
             SimgleDesc = "获得1点能量";
-            Cost = Cost.AddCost(ResourceType. Minor);
+            Cost = new CardCost().AddCost(ResourceType.Minor);
         }
 
         public override void PlayEffect(BattleManager manager, Character user) {

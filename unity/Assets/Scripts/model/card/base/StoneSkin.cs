@@ -13,6 +13,7 @@ namespace model.card.@base {
             SimgleDesc = "直到下回合开始，获得2点伤害减免";
             cooldownTime = 3;
             firstCooldown = 2;
+            Cost = new CardCost().AddCost(ResourceType.Minor);
         }
 
 

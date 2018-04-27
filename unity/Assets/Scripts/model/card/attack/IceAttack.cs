@@ -9,7 +9,7 @@ namespace model.card.attack {
     public class IceAttack : Card {
 
         public IceAttack() {
-            Cost.AddCost(ResourceType.Major);
+            Cost=new CardCost().AddCost(ResourceType.Major);
             cooldownTime = 2;
             Name = "寒冰攻击";
             SimgleDesc = "对敌方造成1点物理伤害，迟缓*1，然后获得1点能量";

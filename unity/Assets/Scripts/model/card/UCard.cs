@@ -13,6 +13,8 @@ namespace model.card {
 
     public class UCard : MonoBehaviour, IComparable<UCard> {
 
+        public Text CardMajorText;
+        
         public Text cardName;
 
         public Text cardSimpleDesc;
@@ -91,6 +93,18 @@ namespace model.card {
                 PlayEffect += AfterPlayEffect;
 
                 CouldCharacterUse = value.CouldCharacterUse;
+
+                foreach(var VARIABLE in value.Cost.costTable.Values) {
+                    if(VARIABLE.type.Equals(ResourceType.Major)) {
+                        CardMajorText.text = "Major";
+                        break;
+                    }
+                    if(VARIABLE.type.Equals(ResourceType.Minor)) {
+                        CardMajorText.text = "Minor";
+                        break;
+                    }
+                }
+                    
             }
         }
 

@@ -13,7 +13,7 @@ namespace model.card.spell {
             CooldownTime = 5;
             CardType = CardType.Spell;
             CardProperty = CardProperty.Physical;
-            Cost.AddCost(ResourceType.Major).AddCost(ResourceType.Energy, 1);
+            Cost=new CardCost().AddCost(ResourceType.Major).AddCost(ResourceType.Energy, 1);
             Name = "盾牌打击";
             SimgleDesc = "造成2点伤害，你每有3点护甲，便额外造成1点伤害";
         }

@@ -10,7 +10,7 @@ namespace model.card.mana {
     public class FireBall : Card {
 
         public FireBall() {
-            Cost = Cost.AddCost(ResourceType. Major).AddCost(ResourceType.Energy,2);
+            Cost = new CardCost().AddCost(ResourceType. Major).AddCost(ResourceType.Energy,2);
             FirstCooldown = 2;
             CooldownTime = 3;
             CardType = CardType.Spell;

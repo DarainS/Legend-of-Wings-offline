@@ -39,7 +39,7 @@ namespace model.card {
 
     public class CardCost {
 
-        private Dictionary<ResourceType,ResourceAction> costTable = new Dictionary<ResourceType,ResourceAction>(10);
+        public Dictionary<ResourceType,ResourceAction> costTable = new Dictionary<ResourceType,ResourceAction>(10);
 
         public CardCost() {
             foreach(ResourceType type in Enum.GetValues(typeof(ResourceType))) {

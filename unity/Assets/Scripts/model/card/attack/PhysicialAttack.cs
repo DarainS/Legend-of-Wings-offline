@@ -9,7 +9,7 @@ namespace model.card.attack {
     public class PhysicialAttack : Card {
 
         public PhysicialAttack() {
-            Cost.AddCost(ResourceType.Major);
+            Cost =new CardCost().AddCost(ResourceType.Major);
             cooldownTime = 2;
             Name = "攻击";
             SimgleDesc = "对敌方造成2点伤害";

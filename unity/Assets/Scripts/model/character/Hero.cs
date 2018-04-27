@@ -15,19 +15,14 @@ namespace model.character {
         
         public Hero():base() {
             initData();
-
         }
         
-      
-
         private void initData() {
-            MaxHealth = 40;
-            Health = 40;
+            MaxHealth = 10;
+            Health = 10;
             MaxEnergy = 10;
             Energy = 0;
-          
-
-
+        
             deck.Add(new IceAttack());
 //            deck.Add(new StoneSkin());
             deck.Add(new Meditation());
@@ -46,7 +41,9 @@ namespace model.character {
         }
 
         public void EndTurn() {
-            
+            Major = 1;
+            Minor = 1;
+            Energy += 1;
         }
 
     }
