@@ -39,7 +39,7 @@ namespace model.card {
 
     public class CardCost {
 
-        public Dictionary<ResourceType,ResourceAction> costTable = new Dictionary<ResourceType,ResourceAction>(10);
+        public Dictionary<ResourceType, ResourceAction> costTable = new Dictionary<ResourceType, ResourceAction>(10);
 
         public CardCost() {
             foreach(ResourceType type in Enum.GetValues(typeof(ResourceType))) {
@@ -55,19 +55,19 @@ namespace model.card {
 
         public bool CouldCharacterCost(BattleManager manager, Character user) {
             foreach(ResourceAction cost in costTable.Values) {
-                if(user.GetResourceNum(cost.type)<cost.num) {
+                if(user.GetResourceNum(cost.type) < cost.num) {
                     return false;
                 }
             }
+
             return true;
         }
 
         public void Cost(BattleManager manager, Character user) {
             foreach(var cost in costTable.Values) {
-                user.SetResourceNum(cost.type,user.GetResourceNum(cost.type)-cost.num);
+                var currentNum = user.GetResourceNum(cost.type);
+                user.SetResourceNum(cost.type, currentNum - cost.num);
             }
         }
-
     }
-
 }

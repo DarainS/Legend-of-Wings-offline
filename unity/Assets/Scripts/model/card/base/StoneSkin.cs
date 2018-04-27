@@ -18,6 +18,7 @@ namespace model.card.@base {
 
 
         public override void PlayEffect(BattleManager manager, Character user) {
+            base.Cost.Cost(manager,user);
             var cardAction = new CardAction<Damage, Damage>(10,
                 damage => {
                     damage.Num = damage.Num - 2;

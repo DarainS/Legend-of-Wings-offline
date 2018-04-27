@@ -52,13 +52,10 @@ namespace model.card {
         public virtual void PlayEffect(BattleManager manager, Character user) {
             if(!CouldCharacterUse(manager, user)) {
                 return;
-            }
-    
-            Cost.Cost(manager, user);
+            }    
         }
 
         public virtual void PlayEffect(BattleManager manager, Character user, Character target) {
-            Cost.Cost(manager, user);
         }
 
         public virtual bool CouldCharacterUse(BattleManager manager, Character user) {

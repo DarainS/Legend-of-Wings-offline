@@ -35,6 +35,11 @@ namespace model.character {
         public Slider secondarySlider;
 
         public Text SecondaryText;
+
+        public Text MajorNumText;
+        public Text MinorNumText;
+        
+        
            
         
         private Dictionary<ResourceType,int> _resourseTable=new Dictionary<ResourceType,int>();
@@ -44,7 +49,16 @@ namespace model.character {
         }
         
         public void SetResourceNum(ResourceType type,int num) {
-              _resourseTable[type]=num;
+            if(type.Equals(ResourceType.Major)) {
+                Major = num;
+            }
+            else if(type.Equals(ResourceType.Minor)) {
+                Minor = num;
+            }
+            else {
+                _resourseTable[type]=num;
+            }
+           
         }
         
 
@@ -61,6 +75,10 @@ namespace model.character {
             get { return (int) _resourseTable[ResourceType.Major]; }
             set {
                 _resourseTable[ResourceType.Major] = value;
+                if(MajorNumText) {
+                    MajorNumText.text = "* " + value;
+
+                }
             }
         }
         
@@ -68,6 +86,10 @@ namespace model.character {
             get { return (int) _resourseTable[ResourceType.Minor]; }
             set {
                 _resourseTable[ResourceType.Minor] = value;
+                if(MinorNumText) {
+                    MinorNumText.text = "* " + value;
+                }
+
             }
         }
         

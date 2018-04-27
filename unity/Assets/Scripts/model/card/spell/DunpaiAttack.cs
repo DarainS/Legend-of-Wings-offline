@@ -22,6 +22,7 @@ namespace model.card.spell {
             var target = ChooseTarget(manager, user);
             var d = new Damage(2, DamageType.Physical, user);
             var plus = user.armor / 3;
+            base.Cost.Cost(manager,user);
             d.Num += plus;
             target.TakeDamage(d);
         }

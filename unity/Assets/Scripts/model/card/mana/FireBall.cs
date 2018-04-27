@@ -21,7 +21,6 @@ namespace model.card.mana {
 
         public override void PlayEffect(BattleManager manager, Character user) {
             var target = ChooseTarget(manager, user);
-            user.Energy -= 2;
             var d = new Damage(4, DamageType.Fire, user);
             target.TakeDamage(d);
         }

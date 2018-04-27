@@ -14,7 +14,7 @@ namespace model.card {
     public class UCard : MonoBehaviour, IComparable<UCard> {
 
         public Text CardMajorText;
-        
+
         public Text cardName;
 
         public Text cardSimpleDesc;
@@ -95,16 +95,16 @@ namespace model.card {
                 CouldCharacterUse = value.CouldCharacterUse;
 
                 foreach(var VARIABLE in value.Cost.costTable.Values) {
-                    if(VARIABLE.type.Equals(ResourceType.Major)) {
-                        CardMajorText.text = "Major";
+                    if(VARIABLE.type.Equals(ResourceType.Major) && VARIABLE.num > 0) {
+                        CardMajorText.text = "主";
                         break;
                     }
-                    if(VARIABLE.type.Equals(ResourceType.Minor)) {
-                        CardMajorText.text = "Minor";
+
+                    if(VARIABLE.type.Equals(ResourceType.Minor) && VARIABLE.num > 0) {
+                        CardMajorText.text = "次";
                         break;
                     }
                 }
-                    
             }
         }
 
@@ -174,6 +174,7 @@ namespace model.card {
             if(character.CouldUseCard(this)) {
                 character.PlayEffect(this);
             }
+
             isUpper = false;
         }
 
