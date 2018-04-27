@@ -71,12 +71,16 @@ namespace battle {
         }
 
         private void initData() {
-            Hero = Config.Hero;
-            Monster = Config.Monster;
+            Config.Hero = Hero;
+            Config.Monster = Monster;
+        }
+
+        public void HeroDrawOneCard() {
+            DrawCard(Hero, 1);
         }
 
         private void beginBattle() {
-            DrawCard(Hero, 2);
+            DrawCard(Hero, 4);
         }
 
         private void GoTurnsOn() {
@@ -96,9 +100,9 @@ namespace battle {
         public void DrawCard(Character c, int n) {
             if(c is Hero) {
                 for(var i = 0; i < n; i++) {
-                    if(deckArea.cards.Count < 1) {
+                    if(deckArea.cards.Count < 1)
                         Shuffle();
-                    }
+
                     if(deckArea.cards.Count == 0) {
                         return;
                     }
@@ -123,12 +127,11 @@ namespace battle {
             ucard.gameObject.SetActive(false);
         }
 
-        private void deleteAllCardsCooldown() {
+        private void decreaseAllCardsCooldown() {
             foreach(var card in allCards) {
                 if(card.CurrentCooldown == 0) {
                     continue;
                 }
-
                 card.CurrentCooldown -= 1;
             }
         }
@@ -144,8 +147,13 @@ namespace battle {
 
             graveArea.ResetCardsCooldown();
 
-            deleteAllCardsCooldown();
+            decreaseAllCardsCooldown();
+
+            Hero.EndTurn();
+            
             GoTurnsOn();
+            
+            Monster.BeginNewTurn();
         }
 
         public void OnMonsterTurnBegin() {
@@ -153,13 +161,10 @@ namespace battle {
         }
 
         public void PlayerBeatMonster(Monster monster) {
-            Hero.Gold += 10;
-            Hero.Health += 10;
             Hero.MaxHealth += 2;
+            Hero.Health += 10;
         }
 
-        
-        
     }
 
 }

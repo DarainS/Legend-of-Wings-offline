@@ -20,6 +20,9 @@ namespace model.card.@base {
             var cardAction = new CardAction<Damage, Damage>(10,
                 damage => {
                     damage.Num = damage.Num - 2;
+                    if(damage.Num<0) {
+                        damage.Num = 0;
+                    }
                     return damage;
                 });
             if(!user.BeforeDamage.Contains(cardAction)) {

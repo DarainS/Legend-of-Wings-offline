@@ -22,22 +22,57 @@ namespace model.character {
 
         private readonly Hashtable _eventMap = new Hashtable(100);
 
-        private int _health;
-
         private int _maxHealth;
 
         protected readonly List<Card> deck = new List<Card>(30);
 
-        private int _mana;
-
-        private int _maxMana;
+        private int _maxEnergy;
 
         public Slider healthSlider;
 
+        public Text healthText;
+
         public Slider secondarySlider;
 
+        public Text SecondaryText;
+           
+        
+        private Dictionary<ResourceType,int> _resourseTable=new Dictionary<ResourceType,int>();
+
+        public int GetResourceNum(ResourceType type) {
+            return _resourseTable[type];
+        }
+        
+        public void SetResourceNum(ResourceType type,int num) {
+              _resourseTable[type]=num;
+        }
+        
+
+        public Character() {
+            foreach(ResourceType type in Enum.GetValues(typeof(ResourceType))) {
+                _resourseTable.Add(type,0);
+            }
+            Major = 1;
+            Minor = 1;
+            
+        }
+
+        public int Major {
+            get { return (int) _resourseTable[ResourceType.Major]; }
+            set {
+                _resourseTable[ResourceType.Major] = value;
+            }
+        }
+        
+        public int Minor {
+            get { return (int) _resourseTable[ResourceType.Minor]; }
+            set {
+                _resourseTable[ResourceType.Minor] = value;
+            }
+        }
+        
         public int Health {
-            get { return _health; }
+            get { return (int) _resourseTable[ResourceType.Health]; }
             set {
                 if(value<=0) {
                     value = 0;
@@ -46,9 +81,12 @@ namespace model.character {
                 if(value> MaxHealth) {
                     value = MaxHealth;
                 }
-                _health = value;
+                _resourseTable[ResourceType.Health] = value;
+                if(healthText != null) {
+                    healthText.text = value + "/" + _maxHealth;
+                }
                 if(healthSlider != null && _maxHealth != 0) {
-                    healthSlider.value = _health;
+                    healthSlider.value = value;
                 }
             }
         }
@@ -67,38 +105,29 @@ namespace model.character {
             }
         }
 
-        public int Mana {
-            get { return _mana; }
+        public int Energy {
+            get { return (int) _resourseTable[ResourceType.Energy]; }
             set {
-                _mana = value;
+                _resourseTable[ResourceType.Energy] = value;
                 if(secondarySlider != null) {
                     secondarySlider.value = value;
+                }
+
+                if(SecondaryText) {
+                    SecondaryText.text = value + "/" + MaxEnergy;
+
                 }
             }
         }
 
-        public int MaxMana {
-            get { return _maxMana; }
+        public int MaxEnergy {
+            get { return _maxEnergy; }
             set {
-                _maxMana = value;
+                _maxEnergy = value;
                 if(secondarySlider != null) {
                     secondarySlider.maxValue = value;
                 }
             }
-        }
-
-        private int _energy;
-
-        public int Energy {
-            get { return _energy; }
-            set { _energy = value; }
-        }
-
-        protected int _maxEnergy;
-
-        public int MaxEnergy {
-            get { return _maxEnergy; }
-            set { _maxEnergy = value; }
         }
 
         protected int _rage;
@@ -129,7 +158,7 @@ namespace model.character {
 
 
         public void TakeDamage(Damage damage) {
-            beforeDamage.Sort();
+//            beforeDamage.Sort();
             damage = beforeDamage.Aggregate(damage, (current, action) => action.playEffect(current));
 
             Health -= damage.Num;
@@ -149,13 +178,25 @@ namespace model.character {
 
         // Use this for initialization
         private void Start() {
+            
             manager = GetComponentInParent<BattleManager>();
             var names = Enum.GetNames(typeof(CharacterEventType));
-            foreach(var name in names) {
-                CharacterEventType p;
-                CharacterEventType.TryParse(name, true, out p);
-                _eventMap.Add(p, new List<CardAction<System.Object, System.Object>>());
-            }
+//            foreach(var name in names) {
+//                CharacterEventType p;
+//                CharacterEventType.TryParse(name, true, p);
+//                Enum.TryParse(name, true, out p);
+//                _eventMap.Add(p, new List<CardAction<System.Object, System.Object>>());
+//            }
+        }
+
+        public virtual void EndTurn() {
+            Major = 1;
+            Minor = 1;
+            Energy += 1;
+        }
+
+        public virtual void BeginNewTurn() {
+            
         }
 
         public List<CardAction<System.Object, System.Object>> GetEventList(CharacterEventType eventType) {
@@ -166,9 +207,7 @@ namespace model.character {
             ((List<CardAction<object, object>>) _eventMap[eventType]).Add(action);
         }
 
-        // Update is called once per frame
-        void Update() {
-        }
+       
 
     }
 

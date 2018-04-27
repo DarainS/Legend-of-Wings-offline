@@ -15,9 +15,9 @@ namespace model.card {
 
         private Character target;
 
-        protected int cooldownTime;
+        protected int cooldownTime = 1;
 
-        protected int firstCooldown;
+        protected int firstCooldown = 1;
 
         public UCard uCard;
 
@@ -38,25 +38,34 @@ namespace model.card {
         }
 
         public virtual Character ChooseTarget(BattleManager manager, Character user) {
-            if(user as Hero) {
+            if(user is Hero) {
                 target = manager.Monster;
             }
-            if(user as Monster) {
+
+            if(user is Monster) {
                 target = manager.Hero;
             }
+
             return target;
         }
 
-        public abstract void PlayEffect(BattleManager manager, Character user);
+        public virtual void PlayEffect(BattleManager manager, Character user) {
+            if(!CouldCharacterUse(manager, user)) {
+                return;
+            }
+    
+            Cost.Cost(manager, user);
+        }
 
         public virtual void PlayEffect(BattleManager manager, Character user, Character target) {
-            
+            Cost.Cost(manager, user);
         }
 
         public virtual bool CouldCharacterUse(BattleManager manager, Character user) {
             if(uCard.CurrentCooldown > 0) {
                 return false;
             }
+
             if(!Cost.CouldCharacterCost(manager, user)) {
                 return false;
             }
