@@ -3,7 +3,7 @@
 using UnityEngine;
 
 
-namespace battle.deckarea {
+namespace manager.battle.deckarea {
 
     public class YieldArea : BaseCardAreaManager {
 

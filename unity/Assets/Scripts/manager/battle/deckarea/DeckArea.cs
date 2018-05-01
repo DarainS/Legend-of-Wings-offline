@@ -3,7 +3,7 @@
 using UnityEngine.UI;
 
 
-namespace battle.deckarea {
+namespace manager.battle.deckarea {
 
     public class DeckArea : BaseCardAreaManager {
 

@@ -3,7 +3,7 @@
 using model.card;
 
 
-namespace common {
+namespace data {
 
     public class HeroData {
 

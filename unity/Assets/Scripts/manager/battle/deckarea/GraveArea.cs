@@ -1,7 +1,7 @@
 ﻿using model.card;
 
 
-namespace battle.deckarea {
+namespace manager.battle.deckarea {
 
     public class GraveArea : BaseCardAreaManager {
 

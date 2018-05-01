@@ -1,4 +1,5 @@
-﻿using battle;
+﻿
+using manager.battle;
 
 using model.character;
 using model.damage;

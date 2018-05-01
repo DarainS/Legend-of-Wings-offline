@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-
-using battle;
-
+using manager.battle;
 using model.character;
 
 
@@ -12,6 +9,7 @@ namespace model.card {
     public class ResourceAction {
 
         public ResourceType type { get; set; }
+        
         public int num { get; set; }
 
         public ResourceAction(ResourceType type) {
@@ -23,7 +21,6 @@ namespace model.card {
             this.type = type;
             num = costNum;
         }
-
     }
 
     public enum ResourceType {
@@ -48,7 +45,7 @@ namespace model.card {
         }
 
         public CardCost AddCost(ResourceType type, int costNum = 1) {
-            ResourceAction resourceAction = (ResourceAction) costTable[type];
+            ResourceAction resourceAction = costTable[type];
             resourceAction.num += costNum;
             return this;
         }

@@ -1,7 +1,7 @@
-﻿using battle;
+﻿
+using manager.battle;
 
 using model.card.attack;
-using model.card.@base;
 using model.card.charge;
 using model.card.mana;
 using model.card.spell;

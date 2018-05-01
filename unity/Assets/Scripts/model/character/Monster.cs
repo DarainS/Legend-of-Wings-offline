@@ -1,6 +1,7 @@
-﻿using battle;
-
+﻿
 using common.config;
+
+using manager.battle;
 
 using model.card.attack;
 using model.card.@base;

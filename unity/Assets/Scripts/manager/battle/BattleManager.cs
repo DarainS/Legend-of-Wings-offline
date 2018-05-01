@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-using battle.deckarea;
-
 using common.config;
+
+using manager.battle.deckarea;
 
 using model.card;
 using model.character;
@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace battle {
+namespace manager.battle {
 
     public class BattleManager : MonoBehaviour {
 
@@ -80,7 +80,7 @@ namespace battle {
         }
 
         private void beginBattle() {
-            DrawCard(Hero, 4);
+            DrawCard(Hero, 3);
         }
 
         private void GoTurnsOn() {
@@ -138,21 +138,15 @@ namespace battle {
 
         public void OnHeroTurnEnd() {
             Debug.Log(" hero turn end");
-
             for(int i = yieldArea.cards.Count - 1; i >= 0; i--) {
                 var temp = yieldArea.cards[i];
                 yieldArea.RemoveCard(temp);
                 graveArea.AddCard(temp);
             }
-
             graveArea.ResetCardsCooldown();
-
             decreaseAllCardsCooldown();
-
             Hero.EndTurn();
-            
             GoTurnsOn();
-            
             Monster.BeginNewTurn();
         }
 

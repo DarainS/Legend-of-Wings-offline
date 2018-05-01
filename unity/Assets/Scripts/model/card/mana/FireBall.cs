@@ -1,4 +1,4 @@
-﻿using battle;
+﻿using manager.battle;
 
 using model.card;
 using model.character;

@@ -1,6 +1,7 @@
 ﻿using System;
 
-using battle;
+
+using manager.battle;
 
 using model.character;
 

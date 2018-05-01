@@ -5,7 +5,7 @@ using model.card;
 using UnityEngine;
 
 
-namespace battle.deckarea {
+namespace manager.battle.deckarea {
 
     public abstract class BaseCardAreaManager : MonoBehaviour {
 
